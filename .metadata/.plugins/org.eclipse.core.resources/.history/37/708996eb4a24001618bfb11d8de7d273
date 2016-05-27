@@ -1,0 +1,10 @@
+package com.valmar.silliconvalley.xsecurity.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "USER")
+public class Usuario {
+
+}
