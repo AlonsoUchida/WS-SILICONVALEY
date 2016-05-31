@@ -26,7 +26,6 @@
 		id="jwtAuthenticationTokenFilter">
 		<property name="authenticationManager" ref="authenticationManager" />
 	</bean>
-
 	
 	<security:authentication-manager alias="authenticationManager" >
 		 <security:authentication-provider
