@@ -68,6 +68,9 @@ public class Usuario {
             joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
             inverseJoinColumns = {@JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID")})
     private List<Authority> authorities;
+	
+	@Column(name = "IMAGEN", nullable = false)
+	private byte[] imagen;
 
 	public Long getId() {
 		return id;
@@ -141,5 +144,12 @@ public class Usuario {
 		this.authorities = authorities;
 	}
 
+	public byte[] getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
+	}
 	
 }

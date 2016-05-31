@@ -21,6 +21,11 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.valmar.silliconvalley.model.Employee</value>
+                <value>com.valmar.silliconvalley.model.Audio</value>
+                <value>com.valmar.silliconvalley.model.Categoria</value>
+                <value>com.valmar.silliconvalley.model.Expositor</value>
+                <value>com.valmar.silliconvalley.model.Nota</value>
+                <value>com.valmar.silliconvalley.model.Tipo</value>
                 <value>com.valmar.silliconvalley.xsecurity.model.Usuario</value>
                 <value>com.valmar.silliconvalley.xsecurity.model.Authority</value>
             </list>

@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.valmar.silliconvalley">
+	<logger name="com.valmar.licoreria">
 		<level value="info" />
 	</logger>
 	

@@ -5,7 +5,1139 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2016-05-26T09:03:01Z</updated>
+  <updated>2016-05-31T13:57:37Z</updated>
+  <entry>
+    <title>Spring REST Docs 1.1.0.RELEASE</title>
+    <link rel="alternate" href="https://spring.io/blog/2016/05/31/spring-rest-docs-1-1-0-release" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Andy Wilkinson</name>
+    </author>
+    <id>tag:spring.io,2016-05-31:2514</id>
+    <updated>2016-05-31T13:57:37Z</updated>
+    <content type="html">&lt;p&gt;It&amp;rsquo;s my pleasure to announce the release of Spring REST Docs 1.1.0.RELEASE which is now available for Maven Central, JCenter and our &lt;a href="https://repo.spring.io/libs-release"&gt;release repository&lt;/a&gt;.&lt;/p&gt;&lt;h1&gt;&lt;a href="#highlights" class="anchor" name="highlights"&gt;&lt;/a&gt;Highlights&lt;/h1&gt;&lt;h2&gt;&lt;a href="#rest-assured" class="anchor" name="rest-assured"&gt;&lt;/a&gt;REST Assured&lt;/h2&gt;
+&lt;p&gt;As an alternative to the lightweight server-less documentation generation offered by Spring Framework&amp;rsquo;s &lt;code&gt;MockMvc&lt;/code&gt;, you can now use &lt;a href="http://rest-assured.io"&gt;REST Assured&lt;/a&gt; to test and document your RESTful services. This opens up Spring REST Docs to all four corners of the JVM and beyond, allowing you to document anything that you can access via HTTP.&lt;/p&gt;
+&lt;p&gt;The &lt;a href="https://github.com/spring-projects/spring-restdocs/tree/v1.1.0.RELEASE/samples"&gt;samples&lt;/a&gt; now include &lt;a href="https://github.com/spring-projects/spring-restdocs/tree/v1.1.0.RELEASE/samples/rest-notes-grails"&gt;an app&lt;/a&gt; that is documented using REST Docs, built using Grails, and tested using Spock. A third-party sample that uses REST Docs to document an API implemented using Ratpack is also &lt;a href="https://github.com/ratpack/example-books"&gt;available&lt;/a&gt;. My thanks to &lt;a href="https://github.com/jlstrater"&gt;Jenn Strater&lt;/a&gt; who wrote both samples.&lt;/p&gt;&lt;h2&gt;&lt;a href="#markdown" class="anchor" name="markdown"&gt;&lt;/a&gt;Markdown&lt;/h2&gt;
+&lt;p&gt;Support has been added for generating Markdown snippets. On its own, Markdown isn&amp;rsquo;t as capable as Asciidoctor, but can work very well when combined with existing documentation toolchains such as &lt;a href="https://github.com/tripit/slate"&gt;Slate&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#testng" class="anchor" name="testng"&gt;&lt;/a&gt;TestNG&lt;/h2&gt;
+&lt;p&gt;In addition to the existing support for using JUnit, you can now use Spring REST Docs with &lt;a href="http://testng.org"&gt;TestNG&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#reusable-snippets" class="anchor" name="reusable-snippets"&gt;&lt;/a&gt;Reusable snippets&lt;/h2&gt;
+&lt;p&gt;Snippets can now be created once with some common configuration and then &lt;a href="http://docs.spring.io/spring-restdocs/docs/1.1.0.RELEASE/reference/html5/#documenting-your-api-reusing-snippets"&gt;reused&lt;/a&gt;. This reduces repetition when documenting common parts on an API, such as &lt;code&gt;self&lt;/code&gt; links. My thanks to &lt;a href="https://github.com/marceloverdijk"&gt;Marcel Overdijk&lt;/a&gt; whose feedback and pull requests have significantly improved this new feature.&lt;/p&gt;&lt;h2&gt;&lt;a href="#relaxed-snippets" class="anchor" name="relaxed-snippets"&gt;&lt;/a&gt;Relaxed snippets&lt;/h2&gt;
+&lt;p&gt;By default, Spring REST Docs will cause your tests to fail if you&amp;rsquo;ve neglected to document something or if you&amp;rsquo;ve attempted to document something that doesn&amp;rsquo;t exist. This is great for detailed API documentation, but can be restrictive when documenting a scenario where you want to focus on a specific part of a request or response. Rather than having to explicitly ignore everything that you don&amp;rsquo;t want to document, you can now use relaxed snippets for documenting links, request and response fields, and request and path parameters.&lt;/p&gt;&lt;h1&gt;&lt;a href="#thank-you" class="anchor" name="thank-you"&gt;&lt;/a&gt;Thank you&lt;/h1&gt;
+&lt;p&gt;Thank you to everyone who has contributed to Spring REST Docs and helped to shape the 1.1 release. I&amp;rsquo;m looking forward to your feedback here, &lt;a href="https://github.com/spring-projects/spring-restdocs/issues"&gt;on GitHub&lt;/a&gt;, &lt;a href="https://stackoverflow.com/tags/spring-restdocs"&gt;Stack Overflow&lt;/a&gt;, and &lt;a href="https://twitter.com/ankinson"&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://projects.spring.io/spring-restdocs"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-restdocs"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-restdocs/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-restdocs/docs/1.1.0.RELEASE/"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Zero Downtime Deployment with a Database</title>
+    <link rel="alternate" href="https://spring.io/blog/2016/05/31/zero-downtime-deployment-with-a-database" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Marcin Grzejszczak</name>
+    </author>
+    <id>tag:spring.io,2016-05-31:2513</id>
+    <updated>2016-05-31T09:09:32Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;This article will explain in depth how to tackle issues related to database compatibility and the deployment process.
+We will present what can happen with your production applications if you try to perform
+such a deployment unprepared. We will then walk through the steps in the lifecycle of an application that are necessary
+to have zero downtime. The result of our operations will be applying a backward incompatible database change in a backward compatible way.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;If you want to work through the code samples below, you will find everything you need in &lt;a href="https://github.com/spring-cloud-samples/zero-downtime-deployment"&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="_introduction"&gt;Introduction&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="_zero_downtime_deployment"&gt;Zero downtime deployment&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;What is this mythical &lt;strong&gt;zero downtime deployment&lt;/strong&gt;? You can say that your application is deployed that way if you can
+successfully introduce a new version of your application to production without making the user see that the application
+went down in the meantime. From the user&amp;#8217;s and the company&amp;#8217;s point of view it&amp;#8217;s the best possible scenario of deployment
+since new features can be introduced and bugs can be eliminated without any outage.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;How can you achieve that? There are number of ways but one of them is just to:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;deploy version 1 of your service&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;migrate your database to a new version&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;deploy version 2 of your service in parallel to the version 1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;once you see that version 2 works like a charm just bring down version 1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;you&amp;#8217;re done!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Easy, isn&amp;#8217;t it? Unfortunately, it&amp;#8217;s not that easy and we&amp;#8217;ll focus on that later on. Right now let&amp;#8217;s check another
+common deployment process which is the blue green deployment.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Have you ever heard of &lt;a href="http://martinfowler.com/bliki/BlueGreenDeployment.html"&gt;blue green deployment&lt;/a&gt;? With Cloud Foundry it&amp;#8217;s
+ extremely easy to do. Just check out &lt;a href="https://spring.io/blog/2014/04/04/project-sagan-zero-downtime-deployments"&gt;this article&lt;/a&gt; where
+ we describe it in more depth. To quickly recap, doing blue green deployment is as simple as:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="quoteblock"&gt;
+&lt;blockquote&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;maintain two copies of your production environment (“blue” and “green”);&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;route all traffic to the the blue environment by mapping production URLs to it;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;deploy and test any changes to the application in the green environment;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;“flip the switch” by mapping URLs onto green and unmapping them from blue.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Blue green deployment is an approach that gives you ease of introducing new features without the stress that
+something will completely blow up on production. That&amp;#8217;s due to the fact that even if that would be the case,
+you can easily rollback your router to point to a previous environment just by "flipping the switch".&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;After reading all of the above you could ask yourself a question: &lt;em&gt;What does zero downtime deployment have to do with Blue green deployment?&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Well, they have quite a lot in common since maintaining two copies of the same environment leads to doubling the effort
+required to support it. That&amp;#8217;s why some teams, as &lt;a href="http://martinfowler.com/bliki/BlueGreenDeployment.html"&gt;Martin Fowler states it&lt;/a&gt;,
+tend to perform a variation of that approach:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="quoteblock"&gt;
+&lt;blockquote&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Another variation would be to use the same database, making the blue-green switches for web and domain layers.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Databases can often be a challenge with this technique, particularly when you need to change the schema to support a new version of the software.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;And here we arrive at the main problem that we will touch in this article. &lt;strong&gt;The database&lt;/strong&gt;. Let&amp;#8217;s have another glimpse on this phrase:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="quoteblock"&gt;
+&lt;blockquote&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;migrate your database to a new version&lt;/p&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Now you should ask yourself a question - what if the database change is backward incompatible? Won&amp;#8217;t my version 1 of the application
+ just blow up? Actually, it will&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;So even though the benefits of zero downtime / blue green deployment are gigantic, companies tend to follow such a safer process
+ of deploying their apps:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;prepare a package with the new version of the application&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;shut down the running application&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;run the database migration scripts&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;deploy and run the new version of the application&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In this article we&amp;#8217;ll describe in more depth how you can work with your database and your code so that you can profit from the
+benefits of the zero downtime deployment.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="_database_issues"&gt;Database issues&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;If you have a stateless application that doesn&amp;#8217;t store any data in the database then you can start doing zero downtime deployment
+right now. Unfortunately, most software has to store the data somewhere. That&amp;#8217;s why you have to think twice before doing any sort
+of schema changes. Before we go into the details of how to change the schema in such a way that zero downtime deployment is possible
+let&amp;#8217;s focus on schema versioning first.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_schema_versioning"&gt;Schema versioning&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In this article we will use &lt;a href="http://flywaydb.org"&gt;Flyway&lt;/a&gt; as a schema versioning tool. Naturally we&amp;#8217;re also writing a Spring Boot application
+that has native support for Flyway and will execute the schema migration upon application context setup. When using Flyway
+ you can store the migration scripts inside your projects folder (by default under &lt;code&gt;classpath:db/migration&lt;/code&gt;). Here you can see an example
+ of such migration files&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-bash" data-lang="bash"&gt;??? db
+ ??? migration
+     ??? V1__init.sql
+     ??? V2__Add_surname.sql
+     ??? V3__Final_migration.sql
+     ??? V4__Remove_lastname.sql&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In this example we can see 4 migration scripts that, if not executed previously, will be executed one after another when the application
+starts. Let&amp;#8217;s take a look at one of the files (&lt;code&gt;V1__init.sql&lt;/code&gt;) as an example.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-sql" data-lang="sql"&gt;CREATE TABLE PERSON (
+	id BIGINT GENERATED BY DEFAULT AS IDENTITY,
+	first_name varchar(255) not null,
+	last_name varchar(255) not null
+);
+
+insert into PERSON (first_name, last_name) values ('Dave', 'Syer');&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;It&amp;#8217;s pretty self-explanatory: you can use SQL to define how your database should be changed. For more information about Spring Boot
+and Flyway &lt;a href="http://docs.spring.io/spring-boot/docs/1.3.5.RELEASE/reference/html/howto-database-initialization.html#howto-execute-flyway-database-migrations-on-startup"&gt;check the Spring Boot Docs&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Using a schema versioning tool with Spring Boot, you receive 2 great benefits.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;you decouple database changes from the code changes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;database migration happens together with your application deployment - your deployment process gets simplified&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="_solving_the_database_issue"&gt;Solving the database issue&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In the following section of the article we will focus on presenting two approaches to database changes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;backward incompatible&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;backward compatible&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The first one will be shown as a warning to not to try to do zero downtime deployment without some preparations.
+The second one will present a suggested solution of how one can perform zero downtime deployment and maintain
+backward compatibility at the same time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Our project that we will work on will be a simple Spring Boot Flyway application in which we have a &lt;code&gt;Person&lt;/code&gt;
+that has a &lt;code&gt;first_name&lt;/code&gt; and a &lt;code&gt;last_name&lt;/code&gt; in the database. We want to rename the &lt;code&gt;last_name&lt;/code&gt; column into &lt;code&gt;surname&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="_assumptions"&gt;Assumptions&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Before we go into details we need to define a couple of assumptions towards our applications. The key result that we
+would like to obtain is to have a fairly simple process.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonitionblock tip"&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class="icon"&gt;
+&lt;div class="title"&gt;Tip&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class="content"&gt;
+Business PRO-TIP. Simplifying processes can save you a lot of money on support (the more people work in your company the more money you can save)!
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;strong&gt;We don&amp;#8217;t want to do database rollbacks&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Not doing them simplifies the deployment process (some database rollbacks are close to impossible like rolling back a delete).
+We prefer to rollback only the applications. That way even if you have different databases (e.g. SQL and NoSQL) then your
+deployment pipeline will look the same.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;strong&gt;We want ALWAYS to be able to rollback the application one version back (not more)&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We want to rollback only as a necessity. If there is a bug in the current version that can&amp;#8217;t be solved easily we want to be
+ able to bring back the last working version. We assume that this last working version is the previous one. Maintaining code and database
+ compatibility for more than a single deployment would be extremely difficult and costly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonitionblock tip"&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class="icon"&gt;
+&lt;div class="title"&gt;Tip&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class="content"&gt;
+For readability purposes we will be versioning the applications in this article with major increments.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="_step_1_initial_situation"&gt;Step 1: Initial situation&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Version of the app: &lt;code&gt;1.0.0&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Version of the DB: &lt;code&gt;v1&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_comment"&gt;Comment&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This will be the initial state of the application that we will take into consideration.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_db_changes"&gt;DB changes&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The db contains a column called &lt;code&gt;last_name&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-sql" data-lang="sql"&gt;CREATE TABLE PERSON (
+	id BIGINT GENERATED BY DEFAULT AS IDENTITY,
+	first_name varchar(255) not null,
+	last_name varchar(255) not null
+);
+
+insert into PERSON (first_name, last_name) values ('Dave', 'Syer');&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_code_changes"&gt;Code changes&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The app stores the Person data into a column called &lt;code&gt;last_name&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;/*
+ * Copyright 2012-2016 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package sample.flyway;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Person {
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String firstName;
+	private String lastName;
+
+	public String getFirstName() {
+		return this.firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return this.lastName;
+	}
+
+	public void setLastName(String lastname) {
+		this.lastName = lastname;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [firstName=" + this.firstName + ", lastName=" + this.lastName
+				+ "]";
+	}
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="_renaming_a_column_in_backward_incompatible_way"&gt;Renaming a column in backward-incompatible way&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Let&amp;#8217;s take a look at the following example if you want to change the column name:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonitionblock warning"&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class="icon"&gt;
+&lt;div class="title"&gt;Warning&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class="content"&gt;
+The following example is deliberately done in such a way that it will break. We&amp;#8217;re showing it to depict the problem of database
+compatibility.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Version of the app: &lt;code&gt;2.0.0.BAD&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Version of the DB: &lt;code&gt;v2bad&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_comment_2"&gt;Comment&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Current changes DO NOT allow us to run two instances (old and new) at the same time. Thus zero down time
+deployment will be difficult to achieve (if we take into consideration out assumptions it&amp;#8217;s actually impossible).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect4"&gt;
+&lt;h5 id="_a_b_testing"&gt;A/B testing&lt;/h5&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The current situation is that we have an app deployed to production in version &lt;code&gt;1.0.0&lt;/code&gt; and db in &lt;code&gt;v1&lt;/code&gt;. We want to deploy the second
+instance of the app that will be in version &lt;code&gt;2.0.0.BAD&lt;/code&gt; and update the db to &lt;code&gt;v2bad&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Steps:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="olist arabic"&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;
+&lt;p&gt;a new instance is deployed in version &lt;code&gt;2.0.0.BAD&lt;/code&gt; that updates the db to &lt;code&gt;v2bad&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;in &lt;code&gt;v2bad&lt;/code&gt; of the database the column &lt;code&gt;last_name&lt;/code&gt; is no longer existing - it got changed to &lt;code&gt;surname&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;the db and app upgrade is successful and you have some instances working in &lt;code&gt;1.0.0&lt;/code&gt;, others in &lt;code&gt;2.0.0.BAD&lt;/code&gt;. All are talking to db
+in &lt;code&gt;v2bad&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;all instances of version &lt;code&gt;1.0.0&lt;/code&gt; will start producing exceptions cause they will try to insert data to &lt;code&gt;last_name&lt;/code&gt; column which is
+no longer there&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;all instances of version &lt;code&gt;2.0.0.BAD&lt;/code&gt; will work without any issues&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As you can if we do backward incompatible changes of the DB and the application, A/B testing is impossible.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect4"&gt;
+&lt;h5 id="_rolling_back_the_application"&gt;Rolling back the application&lt;/h5&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Let&amp;#8217;s assume that after trying to do A/B deployment we&amp;#8217;ve decided that we need to rollback the app back to version &lt;code&gt;1.0.0&lt;/code&gt;. We assumed
+that we don&amp;#8217;t want to roll back the database.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Steps:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="olist arabic"&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;
+&lt;p&gt;we shut down the instance that was running with version &lt;code&gt;2.0.0.BAD&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;the database is still in &lt;code&gt;v2bad&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;since version &lt;code&gt;1.0.0&lt;/code&gt; doesn&amp;#8217;t understand what &lt;code&gt;surname&lt;/code&gt; column is it will produce exceptions&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;hell broke loose and we can&amp;#8217;t go back&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As you can if we do backward incompatible changes of the DB and the application, we can&amp;#8217;t roll back to a previous version.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect4"&gt;
+&lt;h5 id="_logs_from_script_execution"&gt;Logs from script execution&lt;/h5&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-bash" data-lang="bash"&gt;Backward incompatible scenario:
+
+01) Run 1.0.0
+02) Wait for the app (1.0.0) to boot
+03) Generate a person by calling POST localhost:9991/person to version 1.0.0
+04) Run 2.0.0.BAD
+05) Wait for the app (2.0.0.BAD) to boot
+06) Generate a person by calling POST localhost:9991/person to version 1.0.0 &amp;lt;-- this should fail
+07) Generate a person by calling POST localhost:9992/person to version 2.0.0.BAD &amp;lt;-- this should pass
+
+Starting app in version 1.0.0
+Generate a person in version 1.0.0
+Sending a post to 127.0.0.1:9991/person. This is the response:
+
+{"firstName":"b73f639f-e176-4463-bf26-1135aace2f57","lastName":"b73f639f-e176-4463-bf26-1135aace2f57"}
+
+Starting app in version 2.0.0.BAD
+Generate a person in version 1.0.0
+Sending a post to 127.0.0.1:9991/person. This is the response:
+
+curl: (22) The requested URL returned error: 500 Internal Server Error
+
+Generate a person in version 2.0.0.BAD
+Sending a post to 127.0.0.1:9995/person. This is the response:
+
+{"firstName":"e156be2e-06b6-4730-9c43-6e14cfcda125","surname":"e156be2e-06b6-4730-9c43-6e14cfcda125"}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_db_changes_2"&gt;DB changes&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The migration script renames the column from &lt;code&gt;last_name&lt;/code&gt; to &lt;code&gt;surname&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Initial Flyway script:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-sql" data-lang="sql"&gt;CREATE TABLE PERSON (
+	id BIGINT GENERATED BY DEFAULT AS IDENTITY,
+	first_name varchar(255) not null,
+	last_name varchar(255) not null
+);
+
+insert into PERSON (first_name, last_name) values ('Dave', 'Syer');&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Script renaming &lt;code&gt;last_name&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-sql" data-lang="sql"&gt;-- This change is backward incompatible - you can't do A/B testing
+ALTER TABLE PERSON CHANGE last_name surname VARCHAR;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_code_changes_2"&gt;Code changes&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We have changed the field name from &lt;code&gt;lastName&lt;/code&gt; to &lt;code&gt;surname&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="_renaming_a_column_in_backward_compatible_way"&gt;Renaming a column in backward-compatible way&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This is the most frequent situation that we can encounter. We need to perform backward incompatible changes. We have already
+proven that to do zero downtime deployment we must not simply apply the database migration without extra work. In this
+section of the article we will go through 3 deployments of the application together with the database migrations to achieve
+the desired effect and at the same time be backward compatible.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonitionblock tip"&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class="icon"&gt;
+&lt;div class="title"&gt;Tip&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class="content"&gt;
+As a reminder - Let&amp;#8217;s assume that we have the DB in version &lt;code&gt;v1&lt;/code&gt;. It contains the columns &lt;code&gt;first_name&lt;/code&gt; and &lt;code&gt;last_name&lt;/code&gt;.
+We want to change the &lt;code&gt;last_name&lt;/code&gt; into &lt;code&gt;surname&lt;/code&gt;. We also have the app in version &lt;code&gt;1.0.0&lt;/code&gt; which doesn&amp;#8217;t use the &lt;code&gt;surname&lt;/code&gt; column just yet.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="_step_2_adding_surname"&gt;Step 2: Adding surname&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Version of the app: &lt;code&gt;2.0.0&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Version of the DB: &lt;code&gt;v2&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_comment_3"&gt;Comment&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;By adding a new column and copying its contents we have created backward compatible changes of the db. ATM if we
+rollback the JAR / have an old JAR working at the same tame it won&amp;#8217;t break at runtime.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect4"&gt;
+&lt;h5 id="_rolling_a_new_version"&gt;Rolling a new version&lt;/h5&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Steps:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="olist arabic"&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;
+&lt;p&gt;migrate your db to create the new column called &lt;code&gt;surname&lt;/code&gt;. Now your db is in &lt;code&gt;v2&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;copy the data from the &lt;code&gt;last_name&lt;/code&gt; column to &lt;code&gt;surname&lt;/code&gt;. &lt;strong&gt;NOTE&lt;/strong&gt; that if you have a lot of this data then you should consider batch
+migration!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;write the code to use &lt;strong&gt;BOTH&lt;/strong&gt; the &lt;strong&gt;new&lt;/strong&gt; and the &lt;strong&gt;old&lt;/strong&gt; column. Now your app is in version &lt;code&gt;2.0.0&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;If you&amp;#8217;re using Spring Boot Flyway those two steps will be performed upon booting the version &lt;code&gt;2.0.0&lt;/code&gt; of the app.  If you&amp;#8217;re running
+database versioning tool manually then you&amp;#8217;d have to do it in separate processes (first manually upgrade the db version and then deploy
+the new app).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonitionblock important"&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class="icon"&gt;
+&lt;div class="title"&gt;Important&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class="content"&gt;
+Remember that the newly created column &lt;strong&gt;MUST NOT&lt;/strong&gt; be &lt;strong&gt;NOT NULL&lt;/strong&gt;. If you rollback, the old app has no knowledge of the new
+column and won&amp;#8217;t set it upon &lt;code&gt;Insert&lt;/code&gt;. But if you add that constraint and your db is in &lt;code&gt;v2&lt;/code&gt; it would require the value of the new
+column to be set. That would result in constraint violations.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect4"&gt;
+&lt;h5 id="_a_b_testing_2"&gt;A/B testing&lt;/h5&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The current situation is that we have an app deployed to production in version &lt;code&gt;1.0.0&lt;/code&gt; and db in &lt;code&gt;v1&lt;/code&gt;. We want to deploy the second
+instance of the app that will be in version &lt;code&gt;2.0.0&lt;/code&gt; and update the db to &lt;code&gt;v2&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Steps:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="olist arabic"&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;
+&lt;p&gt;a new instance is deployed in version &lt;code&gt;2.0.0&lt;/code&gt; that updates the db to &lt;code&gt;v2&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;in the meantime some requests got processed by instances being in version &lt;code&gt;1.0.0&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;the upgrade is successful and you have some instances working in &lt;code&gt;1.0.0&lt;/code&gt;, others in &lt;code&gt;2.0.0&lt;/code&gt;. All are talking to db in &lt;code&gt;v2&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;version &lt;code&gt;1.0.0&lt;/code&gt; is not using the database&amp;#8217;s column &lt;code&gt;surname&lt;/code&gt; and version &lt;code&gt;2.0.0&lt;/code&gt; is. They don&amp;#8217;t interfere each other, no exceptions
+should be thrown.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;version &lt;code&gt;2.0.0&lt;/code&gt; is saving data to both old and new column thus it&amp;#8217;s backward compatible&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="admonitionblock important"&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class="icon"&gt;
+&lt;div class="title"&gt;Important&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class="content"&gt;
+If you have any queries that count items basing on values from old / new column you have to remember that now you have
+duplicate values (most likely still being migrated). E.g. if you want to count the number of users whose last name (however you call it)
+starts with a letter &lt;code&gt;A&lt;/code&gt; then until the data migration (&lt;code&gt;old&lt;/code&gt; &amp;#8594; &lt;code&gt;new&lt;/code&gt; column) is done you might have inconsistent data if you
+perform the query against the new column.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect4"&gt;
+&lt;h5 id="_rolling_back_the_application_2"&gt;Rolling back the application&lt;/h5&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The current situation is that we have app in version &lt;code&gt;2.0.0&lt;/code&gt; and db in &lt;code&gt;v2&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Steps:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="olist arabic"&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;
+&lt;p&gt;roll back your app to version &lt;code&gt;1.0.0&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;version &lt;code&gt;1.0.0&lt;/code&gt; is not using the database&amp;#8217;s column &lt;code&gt;surname&lt;/code&gt; thus rollback should be successful&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_db_changes_3"&gt;DB changes&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The db contains a column called &lt;code&gt;last_name&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Initial Flyway script:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-sql" data-lang="sql"&gt;CREATE TABLE PERSON (
+	id BIGINT GENERATED BY DEFAULT AS IDENTITY,
+	first_name varchar(255) not null,
+	last_name varchar(255) not null
+);
+
+insert into PERSON (first_name, last_name) values ('Dave', 'Syer');&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Script adding &lt;code&gt;surname&lt;/code&gt; column.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonitionblock warning"&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class="icon"&gt;
+&lt;div class="title"&gt;Warning&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class="content"&gt;
+Remember NOT TO ADD any NOT NULL constraints to the added column. Cause if you rollback the JAR
+ the old version doesn&amp;#8217;t have the notion of the added column and automatically a NULL value will be set. In case
+ of having a constraint the old application will blow up.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-sql" data-lang="sql"&gt;-- NOTE: This field can't have the NOT NULL constraint cause if you rollback, the old version won't know about this field
+-- and will always set it to NULL
+ALTER TABLE PERSON ADD surname varchar(255);
+
+-- WE'RE ASSUMING THAT IT'S A FAST MIGRATION - OTHERWISE WE WOULD HAVE TO MIGRATE IN BATCHES
+UPDATE PERSON SET PERSON.surname = PERSON.last_name&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_code_changes_3"&gt;Code changes&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We are storing data in both &lt;code&gt;last_name&lt;/code&gt; and &lt;code&gt;surname&lt;/code&gt;. Also, we are reading from the &lt;code&gt;last_name&lt;/code&gt; column cause
+it is most up to date. During the deployment process some requests might have been processed by the instance that
+hasn&amp;#8217;t yet been upgraded.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;/*
+ * Copyright 2012-2016 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package sample.flyway;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Person {
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String firstName;
+	private String lastName;
+	private String surname;
+
+	public String getFirstName() {
+		return this.firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return this.lastName;
+	}
+
+	/**
+	 * Reading from the old column since it's most up to date. When there was a migration script ran
+	 * some entries were added to the old column.
+	 */
+	public String getSurname() {
+		return this.lastName;
+	}
+
+	/**
+	 * Storing both FIRST_NAME and SURNAME entries
+	 */
+	public void setSurname(String surname) {
+		this.lastName = surname;
+		this.surname = surname;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [firstName=" + this.firstName + ", lastName=" + this.lastName + ", surname=" + this.surname
+				+ "]";
+	}
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="_step_3_removing_last_name_from_code"&gt;Step 3: Removing last name from code&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Version of the app: &lt;code&gt;3.0.0&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Version of the DB: &lt;code&gt;v3&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_comment_4"&gt;Comment&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;By adding a new column and copying its contents we have created backward compatible changes of the db. ATM if we
+rollback the JAR / have an old JAR working at the same time it won&amp;#8217;t break at runtime.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_db_changes_4"&gt;DB changes&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;There are no structure changes in the DB. The following script is executed that performs the final migration of old data:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-sql" data-lang="sql"&gt;-- WE'RE ASSUMING THAT IT'S A FAST MIGRATION - OTHERWISE WE WOULD HAVE TO MIGRATE IN BATCHES
+-- ALSO WE'RE NOT CHECKING IF WE'RE NOT OVERRIDING EXISTING ENTRIES. WE WOULD HAVE TO COMPARE
+-- ENTRY VERSIONS TO ENSURE THAT IF THERE IS ALREADY AN ENTRY WITH A HIGHER VERSION NUMBER
+-- WE WILL NOT OVERRIDE IT.
+UPDATE PERSON SET PERSON.surname = PERSON.last_name;
+
+-- DROPPING THE NOT NULL CONSTRAINT; OTHERWISE YOU WILL TRY TO INSERT NULL VALUE OF THE LAST_NAME
+-- WITH A NOT_NULL CONSTRAINT.
+ALTER TABLE PERSON MODIFY COLUMN last_name varchar(255) NULL DEFAULT NULL;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_code_changes_4"&gt;Code changes&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We are storing data in both &lt;code&gt;last_name&lt;/code&gt; and &lt;code&gt;surname&lt;/code&gt;. Also, we are reading from the &lt;code&gt;last_name&lt;/code&gt; column cause
+it is most up to date. During the deployment process some requests might have been processed by the instance that
+hasn&amp;#8217;t yet been upgraded.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;/*
+ * Copyright 2012-2016 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package sample.flyway;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Person {
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String firstName;
+	private String surname;
+
+	public String getFirstName() {
+		return this.firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getSurname() {
+		return this.surname;
+	}
+
+	public void setSurname(String lastname) {
+		this.surname = lastname;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [firstName=" + this.firstName + ", surname=" + this.surname
+				+ "]";
+	}
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="_step_4_removing_last_name_from_db"&gt;Step 4: Removing last name from db&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Version of the app: &lt;code&gt;4.0.0&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Version of the DB: &lt;code&gt;v4&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_comment_5"&gt;Comment&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Since the code of version &lt;code&gt;3.0.0&lt;/code&gt; wasn&amp;#8217;t using &lt;code&gt;last_name&lt;/code&gt; column, if we roll back to &lt;code&gt;3.0.0&lt;/code&gt; after removing the
+column from the database then nothing bad will happen at runtime.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect4"&gt;
+&lt;h5 id="_logs_from_script_execution_2"&gt;Logs from script execution&lt;/h5&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-bash" data-lang="bash"&gt;We will do it in the following way:
+
+01) Run 1.0.0
+02) Wait for the app (1.0.0) to boot
+03) Generate a person by calling POST localhost:9991/person to version 1.0.0
+04) Run 2.0.0
+05) Wait for the app (2.0.0) to boot
+06) Generate a person by calling POST localhost:9991/person to version 1.0.0
+07) Generate a person by calling POST localhost:9992/person to version 2.0.0
+08) Kill app (1.0.0)
+09) Run 3.0.0
+10) Wait for the app (3.0.0) to boot
+11) Generate a person by calling POST localhost:9992/person to version 2.0.0
+12) Generate a person by calling POST localhost:9993/person to version 3.0.0
+13) Kill app (3.0.0)
+14) Run 4.0.0
+15) Wait for the app (4.0.0) to boot
+16) Generate a person by calling POST localhost:9993/person to version 3.0.0
+17) Generate a person by calling POST localhost:9994/person to version 4.0.0
+
+
+Starting app in version 1.0.0
+Generate a person in version 1.0.0
+Sending a post to 127.0.0.1:9991/person. This is the response:
+
+{"firstName":"52b6e125-4a5c-429b-a47a-ef18bbc639d2","lastName":"52b6e125-4a5c-429b-a47a-ef18bbc639d2"}
+
+Starting app in version 2.0.0
+
+Generate a person in version 1.0.0
+Sending a post to 127.0.0.1:9991/person. This is the response:
+
+{"firstName":"e41ee756-4fa7-4737-b832-e28827a00deb","lastName":"e41ee756-4fa7-4737-b832-e28827a00deb"}
+
+Generate a person in version 2.0.0
+Sending a post to 127.0.0.1:9992/person. This is the response:
+
+{"firstName":"0c1240f5-649a-4bc5-8aa9-cff855f3927f","lastName":"0c1240f5-649a-4bc5-8aa9-cff855f3927f","surname":"0c1240f5-649a-4bc5-8aa9-cff855f3927f"}
+
+Killing app 1.0.0
+
+Starting app in version 3.0.0
+
+Generate a person in version 2.0.0
+Sending a post to 127.0.0.1:9992/person. This is the response:
+{"firstName":"74d84a9e-5f44-43b8-907c-148c6d26a71b","lastName":"74d84a9e-5f44-43b8-907c-148c6d26a71b","surname":"74d84a9e-5f44-43b8-907c-148c6d26a71b"}
+
+Generate a person in version 3.0.0
+Sending a post to 127.0.0.1:9993/person. This is the response:
+{"firstName":"c6564dbe-9ab5-40ae-9077-8ae6668d5862","surname":"c6564dbe-9ab5-40ae-9077-8ae6668d5862"}
+
+Killing app 2.0.0
+
+Starting app in version 4.0.0
+
+Generate a person in version 3.0.0
+Sending a post to 127.0.0.1:9993/person. This is the response:
+
+{"firstName":"cbe942fc-832e-45e9-a838-0fae25c10a51","surname":"cbe942fc-832e-45e9-a838-0fae25c10a51"}
+
+Generate a person in version 4.0.0
+Sending a post to 127.0.0.1:9994/person. This is the response:
+
+{"firstName":"ff6857ce-9c41-413a-863e-358e2719bf88","surname":"ff6857ce-9c41-413a-863e-358e2719bf88"}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_db_changes_5"&gt;DB changes&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In comparison to &lt;code&gt;v3&lt;/code&gt; we&amp;#8217;re just removing the &lt;code&gt;last_name&lt;/code&gt; column and add missing constraints.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-sql" data-lang="sql"&gt;-- REMOVE THE COLUMN
+ALTER TABLE PERSON DROP last_name;
+
+-- ADD CONSTRAINTS
+UPDATE PERSON SET surname='' WHERE surname IS NULL;
+ALTER TABLE PERSON ALTER COLUMN surname VARCHAR NOT NULL;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect3"&gt;
+&lt;h4 id="_code_changes_5"&gt;Code changes&lt;/h4&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;There are no code changes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="_recap"&gt;Recap&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We have successfully applied the backward incompatible change of renaming the column by doing a couple of
+ backward compatible deploys. Here you can find the summary of the performed actions:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="olist arabic"&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;
+&lt;p&gt;deploy version &lt;code&gt;1.0.0&lt;/code&gt; of the application with &lt;code&gt;v1&lt;/code&gt; of db schema (column name = &lt;code&gt;last_name&lt;/code&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;deploy version &lt;code&gt;2.0.0&lt;/code&gt; of the application that saves data to &lt;code&gt;last_name&lt;/code&gt; and &lt;code&gt;surname&lt;/code&gt; columns.
+The app reads from &lt;code&gt;last_name&lt;/code&gt; column. Db is in version &lt;code&gt;v2&lt;/code&gt; containing both &lt;code&gt;last_name&lt;/code&gt; and &lt;code&gt;surname&lt;/code&gt; columns. The &lt;code&gt;surname&lt;/code&gt; column is
+a copy of the &lt;code&gt;last_name&lt;/code&gt; column. (NOTE: this column must not have the not null constraint)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;deploy version &lt;code&gt;3.0.0&lt;/code&gt; of the application that saves data only to &lt;code&gt;surname&lt;/code&gt; and reads from &lt;code&gt;surname&lt;/code&gt;. As for the db the final
+migration of &lt;code&gt;last_name&lt;/code&gt; to &lt;code&gt;surname&lt;/code&gt; takes place. Also the &lt;strong&gt;NOT NULL&lt;/strong&gt; constraint is dropped from &lt;code&gt;last_name&lt;/code&gt;. Db is now in version &lt;code&gt;v3&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;deploy version &lt;code&gt;4.0.0&lt;/code&gt; of the application - there are no changes in the code. Deploy db in &lt;code&gt;v4&lt;/code&gt; that first
+preforms a final migration of &lt;code&gt;last_name&lt;/code&gt; to &lt;code&gt;surname&lt;/code&gt; and removes the &lt;code&gt;last_name&lt;/code&gt; column. Here you can add any missing constraints&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;By following this approach you can always rollback one version back without breaking the database / application compatibility.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="_code"&gt;Code&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;All the code used in this article is available at &lt;a href="https://github.com/spring-cloud-samples/zero-downtime-deployment"&gt;Github&lt;/a&gt;. Below you can find some additional description.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="_projects"&gt;Projects&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Once you clone the repo you&amp;#8217;ll see the following folder structure.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-bash" data-lang="bash"&gt;??? boot-flyway-v1              - 1.0.0 version of the app with v1 of the schema
+??? boot-flyway-v2              - 2.0.0 version of the app with v2 of the schema (backward-compatible - app can be rolled back)
+??? boot-flyway-v2-bad          - 2.0.0.BAD version of the app with v2bad of the schema (backward-incompatible - app cannot be rolled back)
+??? boot-flyway-v3              - 3.0.0 version of the app with v3 of the schema (app can be rolled back)
+??? boot-flyway-v4              - 4.0.0 version of the app with v4 of the schema (app can be rolled back)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="_scripts"&gt;Scripts&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can run the scripts to execute the scenario that shows the backward compatible and incompatible changes applied to the db.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;To check the &lt;strong&gt;backward compatible&lt;/strong&gt; case just run:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-bash" data-lang="bash"&gt;./scripts/scenario_backward_compatible.sh&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;To check the &lt;strong&gt;backward incompatible&lt;/strong&gt; case just run:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-bash" data-lang="bash"&gt;./scripts/scenario_backward_incompatible.sh&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="_spring_boot_sample_flyway"&gt;Spring Boot Sample Flyway&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;All samples are clones of the &lt;code&gt;Spring Boot Sample Flyway&lt;/code&gt; project.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can look at &lt;code&gt;&lt;a href="http://localhost:8080/flyway" class="bare"&gt;http://localhost:8080/flyway&lt;/a&gt;&lt;/code&gt; to review the list of scripts.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The sample also enables the H2 console (at &lt;code&gt;&lt;a href="http://localhost:8080/h2-console" class="bare"&gt;http://localhost:8080/h2-console&lt;/a&gt;&lt;/code&gt;)
+so that you can review the state of the database (the default jdbc url is
+&lt;code&gt;jdbc:h2:mem:testdb&lt;/code&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="_additional_reading"&gt;Additional Reading&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://databaserefactoring.com"&gt;Database Refactoring patterns&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://martinfowler.com/bliki/ContinuousDelivery.html"&gt;Continuous Delivery&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+  </entry>
   <entry>
     <title>Spring Statemachine 1.1.0 Released</title>
     <link rel="alternate" href="https://spring.io/blog/2016/05/26/spring-statemachine-1-1-0-released" />
@@ -641,34 +1773,5 @@ public static class MyService {&#xD;
     <content type="html">&lt;p&gt;Spring Boot 1.3.4 has been released and is available now from &lt;a href="http://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.springframework.boot%22"&gt;Maven Central&lt;/a&gt;. &lt;/p&gt;
 &lt;p&gt;This maintenance release includes a &lt;a href="https://github.com/spring-projects/spring-boot/issues?q=milestone%3A1.3.4+is%3Aclosed"&gt;number of fixes&lt;/a&gt; and 3rd party dependency updates.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Framework 4.3 RC2, 4.2.6 and 3.2.17 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2016/05/06/spring-framework-4-3-rc2-4-2-6-and-3-2-17-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Stéphane Nicoll</name>
-    </author>
-    <id>tag:spring.io,2016-05-06:2492</id>
-    <updated>2016-05-06T13:59:44Z</updated>
-    <content type="html">&lt;p&gt;It is my pleasure to announce that the Spring Framework &lt;a href="https://jira.spring.io/secure/ReleaseNote.jspa?projectId=10000&amp;version=15460"&gt;4.2.6&lt;/a&gt; and &lt;a href="https://jira.spring.io/secure/ReleaseNote.jspa?projectId=10000&amp;version=15518"&gt;3.2.17&lt;/a&gt; maintenance releases &lt;a href="http://projects.spring.io/spring-framework"&gt;are available now&lt;/a&gt;. We also released &lt;a href="https://jira.spring.io/secure/ReleaseNote.jspa?projectId=10000&amp;version=15487"&gt;the second release candidate of the 4.3 line&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;4.3 RC2 contains many refinements and fixes, especially in the web framework area. We are about to finalize 4.3 with a scheduled GA in early June. Preparations towards merging 5.0 features into master will happen right afterwards, with a first 5.0 milestone expected in July.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://jira.spring.io/browse/SPR"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/htmlsingle/"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Security 4.1.0 Released</title>
-    <link rel="alternate" href="https://spring.io/blog/2016/05/05/spring-security-4-1-0-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Rob Winch</name>
-    </author>
-    <id>tag:spring.io,2016-05-05:2491</id>
-    <updated>2016-05-05T12:15:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the community, I&amp;rsquo;m pleased to announce the release of Spring Security 4.1.0.RELEASE. This release evolved through &lt;a href="https://github.com/spring-projects/spring-security/issues?q=milestone%3A%224.1.0+RC1%22"&gt;4.1.0 RC1&lt;/a&gt;, &lt;a href="https://github.com/spring-projects/spring-security/issues?q=milestone%3A%224.1.0+RC2%22"&gt;4.1.0 RC2&lt;/a&gt;, and &lt;a href="https://github.com/spring-projects/spring-security/issues?q=milestone%3A4.1.0"&gt;4.1.0&lt;/a&gt; closing nearly 200 tickets.&lt;/p&gt;&lt;h1&gt;&lt;a href="#what-s-new-in-spring-security-4-1" class="anchor" name="what-s-new-in-spring-security-4-1"&gt;&lt;/a&gt;What’s New in Spring Security 4.1&lt;/h1&gt;
-&lt;p&gt;You can find highlights of what&amp;rsquo;s new in the &lt;a href="http://docs.spring.io/spring-security/site/docs/4.1.x/reference/htmlsingle/#new"&gt;What’s New in Spring Security 4.1&lt;/a&gt; section of the reference. For details refer to the changlog links above.&lt;/p&gt;&lt;h1&gt;&lt;a href="#contributions" class="anchor" name="contributions"&gt;&lt;/a&gt;Contributions&lt;/h1&gt;
-&lt;p&gt;Without the community we couldn&amp;rsquo;t be the successful project we are today. I&amp;rsquo;d like to thank everyone that created issues &amp;amp; provided feedback. &lt;/p&gt;&lt;h1&gt;&lt;a href="#feedback-please" class="anchor" name="feedback-please"&gt;&lt;/a&gt;Feedback Please&lt;/h1&gt;
-&lt;p&gt;If you have feedback on this release, I encourage you to reach out via &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;StackOverflow&lt;/a&gt;, &lt;a href="https://github.com/spring-projects/spring-security/issues"&gt;GitHub Issues&lt;/a&gt;, or via the comments section. You can also ping me &lt;a href="https://twitter.com/rob_winch"&gt;@rob_winch&lt;/a&gt; or Joe (our latest full time Spring Security team member) &lt;a href="https://twitter.com/joe_grandja"&gt;@joe_grandja&lt;/a&gt; on Twitter.&lt;/p&gt;
-&lt;p&gt;Of course the best feedback comes in the form of &lt;a href="https://github.com/spring-projects/spring-security/blob/master/CONTRIBUTING.md"&gt;contributions&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-security/site/docs/4.1.0.RELEASE/reference/htmlsingle/"&gt;Reference&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-security/site/docs/4.1.0.RELEASE/guides/html5/"&gt;Guides&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
 </feed>

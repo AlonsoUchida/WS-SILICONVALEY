@@ -23,6 +23,7 @@ import com.valmar.silliconvalley.xsecurity.model.Usuario;
 public class TokenDaoImpl extends AbstractDao<Integer, Token> implements TokenDao {
 
 	private static final int expireTimeInSeconds = 900;
+	private static final String USERNAME = "u.correo";
 
 	@Override
 	public String generateToken(Usuario user) {
@@ -110,15 +111,17 @@ public class TokenDaoImpl extends AbstractDao<Integer, Token> implements TokenDa
 
 	@Override
 	public String getUsernameFromToken(String token) {
-		String userName;
+		String userName = "";
 		try {
-			Query query = getSession().createSQLQuery("SELECT u.username FROM test.user u "
+			Query query = getSession().createSQLQuery("SELECT " + USERNAME + " FROM USUARIO u "
 					+ "INNER JOIN Token t ON u.id = t.userId " + "WHERE t.authToken = :authToken");
 			query.setString("authToken", token);
 			@SuppressWarnings("unchecked")
 			List<Object[]> results = query.list();
-			Object obj = results.get(0);
-			userName = (String) obj;
+			if(!results.isEmpty()){
+				Object obj = results.get(0);
+				userName = (String) obj;
+			}
 		} catch (Exception ex) {
 			return null;
 		}
