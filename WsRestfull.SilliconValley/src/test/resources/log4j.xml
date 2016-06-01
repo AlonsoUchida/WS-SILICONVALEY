@@ -10,11 +10,7 @@
 		</layout>
 	</appender>
 	
-	<!-- Application Loggers -->
-	<logger name="com.valmar.licoreria">
-		<level value="info" />
-	</logger>
-	
+	<!-- Application Loggers -->	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
 		<level value="info" />
