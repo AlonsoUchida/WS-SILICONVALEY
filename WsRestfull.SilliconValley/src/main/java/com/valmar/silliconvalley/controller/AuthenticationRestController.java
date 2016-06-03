@@ -19,6 +19,7 @@ import com.valmar.silliconvalley.xsecurity.model.AuthenticationRequest;
 import com.valmar.silliconvalley.xsecurity.model.AuthenticationResponse;
 import com.valmar.silliconvalley.xsecurity.services.UserService;
 
+@CrossOrigin
 @RestController
 public class AuthenticationRestController {
 

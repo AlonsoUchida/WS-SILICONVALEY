@@ -87,7 +87,7 @@ CREATE TABLE `authority` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+);
 -- ----------------------------
 -- Table structure for user_authority
 -- ----------------------------
@@ -96,14 +96,14 @@ CREATE TABLE `user_authority` (
   `AUTHORITY_ID` int(11) NOT NULL,
   KEY `USER_ID` (`USER_ID`),
   KEY `AUTHORITY_ID` (`AUTHORITY_ID`),
-  CONSTRAINT `user_authority_ibfk_1` FOREIGN KEY (`USER_ID`) REFERENCES `USUARIO` (`ID`),
-  CONSTRAINT `user_authority_ibfk_2` FOREIGN KEY (`AUTHORITY_ID`) REFERENCES `authority` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  FOREIGN KEY (`USER_ID`) REFERENCES `USUARIO` (`ID`),
+  FOREIGN KEY (`AUTHORITY_ID`) REFERENCES `authority` (`ID`)
+);
 
-INSERT INTO `usuario` VALUES ('1', 'ALONSO UCHIDA', 'VALMAR GROUP SAC', NOW(), 'M', '12345', 'javier.uchida@valmar.com.pe', 'Analista Desarrollador Senior', NULL);
-INSERT INTO `usuario` VALUES ('2', 'VICTOR MALAVER', 'VALMAR GROUP SAC', NOW(), 'M', '12345', 'victor.malaver@valmar.com.pe', 'Analista Desarrollador Senior', NULL);
-INSERT INTO `usuario` VALUES ('3', 'JOSUE MOSQUERA', 'VALMAR GROUP SAC', NOW(), 'M', '12345', 'josue.mosquera@valmar.com.pe', 'Analista Desarrollador Senior', NULL);
-INSERT INTO `usuario` VALUES ('4', 'JOHN ORREGO', 'VALMAR GROUP SAC', NOW(), 'M', '12345', 'john.orrego@valmar.com.pe', 'Analista Desarrollador Senior', NULL);
+INSERT INTO `USUARIO` VALUES ('1', 'ALONSO UCHIDA', 'VALMAR GROUP SAC', NOW(), 'M', '12345', 'javier.uchida@valmar.com.pe', 'Analista Desarrollador Senior', NULL);
+INSERT INTO `USUARIO` VALUES ('2', 'VICTOR MALAVER', 'VALMAR GROUP SAC', NOW(), 'M', '12345', 'victor.malaver@valmar.com.pe', 'Analista Desarrollador Senior', NULL);
+INSERT INTO `USUARIO` VALUES ('3', 'JOSUE MOSQUERA', 'VALMAR GROUP SAC', NOW(), 'M', '12345', 'josue.mosquera@valmar.com.pe', 'Analista Desarrollador Senior', NULL);
+INSERT INTO `USUARIO` VALUES ('4', 'JOHN ORREGO', 'VALMAR GROUP SAC', NOW(), 'M', '12345', 'john.orrego@valmar.com.pe', 'Analista Desarrollador Senior', NULL);
 -- ----------------------------
 -- Records of authority
 -- ----------------------------

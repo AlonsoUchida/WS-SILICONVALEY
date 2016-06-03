@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "AUDIO")
 public class Audio {
@@ -25,6 +27,7 @@ public class Audio {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="ID_NOTA")
+	@JsonBackReference
     private Nota nota;
 
 	public int getId() {

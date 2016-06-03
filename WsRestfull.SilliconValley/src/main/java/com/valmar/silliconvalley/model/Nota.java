@@ -2,7 +2,9 @@ package com.valmar.silliconvalley.model;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,6 +21,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.valmar.silliconvalley.xsecurity.model.Usuario;
 
 @Entity
@@ -37,29 +43,34 @@ public class Nota {
 	@Temporal(TemporalType.DATE)
 	private Date fechaRegistro;
 	
-	@OneToMany(mappedBy="nota")
-	private List<Audio> audios;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "nota", cascade = CascadeType.ALL)
+	@JsonManagedReference
+	private Set<Audio> audios;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 	      name="CATEGORIAXNOTA",
-	      joinColumns=@JoinColumn(name="ID_CATEGORIA", referencedColumnName="ID"),
-	      inverseJoinColumns=@JoinColumn(name="ID_NOTA", referencedColumnName="ID"))
-	  private List<Categoria> categorias;
+	      joinColumns=@JoinColumn(name="ID_NOTA", referencedColumnName="ID"),
+	      inverseJoinColumns=@JoinColumn(name="ID_CATEGORIA", referencedColumnName="ID"))
+	@JsonManagedReference
+	private Set<Categoria> categorias;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	  @JoinTable(
 	      name="TIPOXNOTA",
-	      joinColumns=@JoinColumn(name="ID_TIPO", referencedColumnName="ID"),
-	      inverseJoinColumns=@JoinColumn(name="ID_NOTA", referencedColumnName="ID"))
-	private List<Tipo> tipos;
+	      joinColumns=@JoinColumn(name="ID_NOTA", referencedColumnName="ID"),
+	      inverseJoinColumns=@JoinColumn(name="ID_TIPO", referencedColumnName="ID"))
+	@JsonManagedReference
+	private Set<Tipo> tipos;
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="ID_EXPOSITOR")
+	@JsonManagedReference
 	private Expositor expositor;
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="ID_USUARIO")
+	@JsonManagedReference
 	private Usuario usuario;
 
 	public int getId() {
@@ -86,11 +97,11 @@ public class Nota {
 		this.fechaRegistro = fechaRegistro;
 	}
 
-	public List<Audio> getAudios() {
+	public Set<Audio> getAudios() {
 		return audios;
 	}
 
-	public void setAudios(List<Audio> audios) {
+	public void setAudios(Set<Audio> audios) {
 		this.audios = audios;
 	}
 
@@ -110,19 +121,19 @@ public class Nota {
 		this.usuario = usuario;
 	}
 
-	public List<Categoria> getCategorias() {
+	public Set<Categoria> getCategorias() {
 		return categorias;
 	}
 
-	public void setCategorias(List<Categoria> categorias) {
+	public void setCategorias(Set<Categoria> categorias) {
 		this.categorias = categorias;
 	}
 
-	public List<Tipo> getTipos() {
+	public Set<Tipo> getTipos() {
 		return tipos;
 	}
 
-	public void setTipos(List<Tipo> tipos) {
+	public void setTipos(Set<Tipo> tipos) {
 		this.tipos = tipos;
 	}
 	

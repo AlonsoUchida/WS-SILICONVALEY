@@ -4,12 +4,15 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="TIPO")
@@ -23,8 +26,9 @@ public class Tipo {
 	@Column(name = "DESCRIPCION", nullable = false)
 	private String descripcion;
 	
-	/*@ManyToMany(mappedBy="tipos")
-	private List<Nota> notas;*/
+	@JsonIgnore
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy="tipos")
+	private List<Nota> notas;
 
 	public int getId() {
 		return id;
@@ -42,13 +46,13 @@ public class Tipo {
 		this.descripcion = descripcion;
 	}
 
-	/*public List<Nota> getNotas() {
+	public List<Nota> getNotas() {
 		return notas;
 	}
 
 	public void setNotas(List<Nota> notas) {
 		this.notas = notas;
-	}*/
+	}
 	
 	
 }

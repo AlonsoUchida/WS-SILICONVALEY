@@ -38,4 +38,14 @@ public class NotaServiceImpl implements NotaService{
 		return notaDao.listarNotas();
 	}
 
+	@Override
+	public List<Nota> obtenerReporte(Integer[] tiposId, Integer[] categId, Integer usuarioId, Integer expositorId) {
+		return notaDao.obtenerReporte(tiposId, categId, usuarioId, expositorId);
+	}
+
+	@Override
+	public List<Nota> obtenerPorExpositor(int id) {
+		return notaDao.obtenerPorExpositor(id);
+	}
+
 }

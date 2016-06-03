@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "CATEGORIA")
 public class Categoria {
@@ -26,8 +28,9 @@ public class Categoria {
 	@Column(name = "DESCRIPCION", nullable = false)
 	private String descripcion;
 	
-	/*@ManyToMany(mappedBy="categorias")
-	private List<Nota> notas;*/
+	@JsonIgnore
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy="categorias")
+	private List<Nota> notas;
 
 	public int getId() {
 		return id;
@@ -45,12 +48,12 @@ public class Categoria {
 		this.descripcion = descripcion;
 	}
 
-	/*public List<Nota> getNotas() {
+	public List<Nota> getNotas() {
 		return notas;
 	}
 
 	public void setNotas(List<Nota> notas) {
 		this.notas = notas;
-	}*/
+	}
 	
 }
