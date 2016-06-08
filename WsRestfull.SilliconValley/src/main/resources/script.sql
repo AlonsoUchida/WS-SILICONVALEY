@@ -105,6 +105,35 @@ INSERT INTO `USUARIO` VALUES ('1', 'ALONSO UCHIDA', 'VALMAR GROUP SAC', NOW(), '
 INSERT INTO `USUARIO` VALUES ('2', 'VICTOR MALAVER', 'VALMAR GROUP SAC', NOW(), 'M', '12345', 'victor.malaver@valmar.com.pe', 'Analista Desarrollador Senior', NULL);
 INSERT INTO `USUARIO` VALUES ('3', 'JOSUE MOSQUERA', 'VALMAR GROUP SAC', NOW(), 'M', '12345', 'josue.mosquera@valmar.com.pe', 'Analista Desarrollador Senior', NULL);
 INSERT INTO `USUARIO` VALUES ('4', 'JOHN ORREGO', 'VALMAR GROUP SAC', NOW(), 'M', '12345', 'john.orrego@valmar.com.pe', 'Analista Desarrollador Senior', NULL);
+
+INSERT INTO `EXPOSITOR` 
+VALUES ('1', 'GOOGLE', 'Victor Malaver, Alonso Uchida,  Josue Mosquera', 'REALIDAD AUMENTADA', NOW(), 
+'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a mi auctor, 
+hendrerit sapien accumsan, suscipit risus. Aenean aliquet interdum metus, 
+non sollicitudin mauris tempor quis. Class aptent taciti sociosqu ad litora 
+torquent per conubia nostra, per inceptos himenaeos. Aliquam pulvinar euismod odio, 
+et sodales odio luctus ut. Quisque rutrum lectus sed lectus varius, eget pharetra lorem porttitor.
+ Suspendisse bibendum gravida tortor, vel facilisis sem efficitur a. Ut quis tortor sed est
+ malesuada suscipi', NULL);
+ INSERT INTO `EXPOSITOR` 
+VALUES ('2', 'YAHOO', 'Victor Malaver, Alonso Uchida,  Josue Mosquera', 'INTELIGENCIA ARTIFICIAL', NOW(), 
+'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a mi auctor, 
+hendrerit sapien accumsan, suscipit risus. Aenean aliquet interdum metus, 
+non sollicitudin mauris tempor quis. Class aptent taciti sociosqu ad litora 
+torquent per conubia nostra, per inceptos himenaeos. Aliquam pulvinar euismod odio, 
+et sodales odio luctus ut. Quisque rutrum lectus sed lectus varius, eget pharetra lorem porttitor.
+ Suspendisse bibendum gravida tortor, vel facilisis sem efficitur a. Ut quis tortor sed est
+ malesuada suscipi', NULL);
+ INSERT INTO `EXPOSITOR` 
+VALUES ('3', 'FACEBOOK', 'Victor Malaver, Alonso Uchida,  Josue Mosquera', 'MOBILES', NOW(), 
+'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a mi auctor, 
+hendrerit sapien accumsan, suscipit risus. Aenean aliquet interdum metus, 
+non sollicitudin mauris tempor quis. Class aptent taciti sociosqu ad litora 
+torquent per conubia nostra, per inceptos himenaeos. Aliquam pulvinar euismod odio, 
+et sodales odio luctus ut. Quisque rutrum lectus sed lectus varius, eget pharetra lorem porttitor.
+ Suspendisse bibendum gravida tortor, vel facilisis sem efficitur a. Ut quis tortor sed est
+ malesuada suscipi', NULL);
+ 
 -- ----------------------------
 -- Records of authority
 -- ----------------------------
