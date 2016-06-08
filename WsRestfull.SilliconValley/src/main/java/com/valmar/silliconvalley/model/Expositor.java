@@ -25,9 +25,13 @@ public class Expositor {
 	private String nombreEmpresa;
 	
 	@Size(min = 3, max = 200)
+	@Column(name = "NOMBRE_EXPOSITOR", nullable = false)
+	private String nombreExpositor;
+	
+	@Size(min = 3, max = 200)
 	@Column(name = "TEMA", nullable = false)
 	private String tema;
-	
+
 	@Column(name = "FECHA_EXPOSICION", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaExposicion;
@@ -53,6 +57,15 @@ public class Expositor {
 
 	public void setNombreEmpresa(String nombreEmpresa) {
 		this.nombreEmpresa = nombreEmpresa;
+	}
+	
+	
+	public String getNombreExpositor() {
+		return nombreExpositor;
+	}
+
+	public void setNombreExpositor(String nombreExpositor) {
+		this.nombreExpositor = nombreExpositor;
 	}
 
 	public String getTema() {

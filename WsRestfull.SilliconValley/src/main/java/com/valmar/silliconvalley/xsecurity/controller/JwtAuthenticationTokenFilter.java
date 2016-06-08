@@ -8,9 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-import org.springframework.web.bind.annotation.CrossOrigin;
-
-import com.valmar.silliconvalley.xsecurity.model.Usuario;
 import com.valmar.silliconvalley.xsecurity.services.UserService;
 
 import javax.servlet.FilterChain;
