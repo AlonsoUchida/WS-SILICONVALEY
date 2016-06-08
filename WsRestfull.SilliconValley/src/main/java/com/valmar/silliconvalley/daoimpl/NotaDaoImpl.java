@@ -22,7 +22,6 @@ import com.valmar.silliconvalley.dao.NotaDao;
 import com.valmar.silliconvalley.model.Categoria;
 import com.valmar.silliconvalley.model.Nota;
 import com.valmar.silliconvalley.model.Tipo;
-import com.valmar.silliconvalley.util.Util;
 import com.valmar.silliconvalley.xsecurity.model.Token;
 
 @Repository("notaDao")
