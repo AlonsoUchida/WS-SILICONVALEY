@@ -1,5 +1,0 @@
-package com.valmar.silliconvalley.xsecurity.dao;
-
-public class JwtUser {
-
-}
