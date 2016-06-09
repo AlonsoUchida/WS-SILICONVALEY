@@ -1,6 +1,9 @@
 package com.valmar.silliconvalley.controller;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -16,8 +19,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.valmar.silliconvalley.model.Categoria;
+import com.valmar.silliconvalley.model.Expositor;
 import com.valmar.silliconvalley.model.Nota;
+import com.valmar.silliconvalley.model.Tipo;
+import com.valmar.silliconvalley.services.CategoriaService;
+import com.valmar.silliconvalley.services.ExpositorService;
 import com.valmar.silliconvalley.services.NotaService;
+import com.valmar.silliconvalley.services.TipoService;
+import com.valmar.silliconvalley.viewmodel.NotaVM;
+import com.valmar.silliconvalley.xsecurity.model.Usuario;
+import com.valmar.silliconvalley.xsecurity.services.UserService;
 
 @CrossOrigin
 @RestController
@@ -26,6 +38,18 @@ public class NotaRestController {
 
 	@Autowired
     NotaService service;
+	
+	@Autowired
+    CategoriaService categoriaService;
+	
+	@Autowired
+	TipoService tipoService;
+	
+	@Autowired
+	ExpositorService expositorService;
+	
+	@Autowired
+	UserService userService;
     /*
      * This method will list all existing audios.
      */
@@ -47,11 +71,33 @@ public class NotaRestController {
         return new ResponseEntity<Nota>(nota, HttpStatus.OK);
     }
  
-    @RequestMapping(value = "/agregar/", method = RequestMethod.POST)
-    public ResponseEntity<Void> agregar(@RequestBody Nota nota,  UriComponentsBuilder ucBuilder) {        
-        if (service.obtenerPorId(nota.getId())!=null) {
-            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-        } 
+    @RequestMapping(value = "/agregar", method = RequestMethod.POST)
+    public ResponseEntity<Void> agregar(@RequestBody NotaVM notaVM,  UriComponentsBuilder ucBuilder) {        
+        Nota nota = new Nota();
+        nota.setComentario(notaVM.getComentario());
+        nota.setFechaRegistro(notaVM.getFechaRegistro());
+        
+        List<Categoria> categorias = new ArrayList<>();
+        List<Tipo> tipos = new ArrayList<>();
+        for(int id : notaVM.getCategorias()){
+        	Categoria caterogia = categoriaService.listarCategorias()
+        			.stream().filter(c -> c.getId() == id).findFirst().orElse(null);
+        	categorias.add(caterogia);
+        }
+        nota.setCategorias(new HashSet<Categoria>(categorias));
+        for(int id : notaVM.getTipos()){
+        	Tipo tipo = tipoService.listarTipos()
+        			.stream().filter(c -> c.getId() == id).findFirst().orElse(null);
+        	tipos.add(tipo);
+        }
+        nota.setCategorias(new HashSet<Categoria>(categorias));
+        nota.setTipos(new HashSet<Tipo>(tipos));
+        
+        Expositor expositor = expositorService.obtenerPorId(notaVM.getExpositor_id());
+        nota.setExpositor(expositor);
+        Usuario usuario = userService.getUserById(notaVM.getUsuario_id());
+        nota.setUsuario(usuario);
+        
         service.agregar(nota); 
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/nota/{id}").buildAndExpand(nota.getId()).toUri());

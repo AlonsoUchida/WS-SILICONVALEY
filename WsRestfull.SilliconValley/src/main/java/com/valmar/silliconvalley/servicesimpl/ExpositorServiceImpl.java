@@ -22,4 +22,9 @@ public class ExpositorServiceImpl implements ExpositorService{
 		return expositorDao.listarExpositores();
 	}
 
+	@Override
+	public Expositor obtenerPorId(int id) {
+		return expositorDao.obtenerPorId(id);
+	}
+
 }

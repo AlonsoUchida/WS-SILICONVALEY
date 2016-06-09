@@ -54,4 +54,5 @@ public class UserDaoImpl extends AbstractDao<Integer, Usuario> implements UserDa
 		return usuario;
 	}
 
+
 }

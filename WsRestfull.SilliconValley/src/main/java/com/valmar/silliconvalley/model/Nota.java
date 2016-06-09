@@ -21,17 +21,22 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Cascade;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.valmar.silliconvalley.xsecurity.model.Usuario;
+import com.valmar.silliconvalley.model.Expositor;
 
 @Entity
 @Table(name="NOTA")
 public class Nota {
 
 	@Id
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
@@ -44,10 +49,10 @@ public class Nota {
 	private Date fechaRegistro;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "nota", cascade = CascadeType.ALL)
-	@JsonManagedReference
+	@JsonBackReference
 	private Set<Audio> audios;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	@JoinTable(
 	      name="CATEGORIAXNOTA",
 	      joinColumns=@JoinColumn(name="ID_NOTA", referencedColumnName="ID"),
@@ -55,7 +60,7 @@ public class Nota {
 	@JsonManagedReference
 	private Set<Categoria> categorias;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	  @JoinTable(
 	      name="TIPOXNOTA",
 	      joinColumns=@JoinColumn(name="ID_NOTA", referencedColumnName="ID"),

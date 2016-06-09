@@ -35,7 +35,7 @@ public class NotaDaoImpl extends AbstractDao<Integer, Nota> implements NotaDao {
 	@Override
 	public void agregar(Nota nota) {
 		try {
-			persist(nota);
+			merge(nota);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

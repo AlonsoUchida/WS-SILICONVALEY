@@ -1,6 +1,7 @@
 package com.valmar.silliconvalley.model;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,13 +15,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "CATEGORIA")
 public class Categoria {
 
 	@Id
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
@@ -28,9 +32,9 @@ public class Categoria {
 	@Column(name = "DESCRIPCION", nullable = false)
 	private String descripcion;
 	
-	@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy="categorias")
-	private List<Nota> notas;
+	@JsonBackReference
+	private Set<Nota> notas;
 
 	public int getId() {
 		return id;
@@ -48,11 +52,11 @@ public class Categoria {
 		this.descripcion = descripcion;
 	}
 
-	public List<Nota> getNotas() {
+	public Set<Nota> getNotas() {
 		return notas;
 	}
 
-	public void setNotas(List<Nota> notas) {
+	public void setNotas(Set<Nota> notas) {
 		this.notas = notas;
 	}
 	

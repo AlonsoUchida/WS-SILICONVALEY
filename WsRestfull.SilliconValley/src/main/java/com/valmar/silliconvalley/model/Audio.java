@@ -12,12 +12,15 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "AUDIO")
 public class Audio {
 	
 	@Id
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
@@ -27,7 +30,7 @@ public class Audio {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="ID_NOTA")
-	@JsonBackReference
+	@JsonIgnore
     private Nota nota;
 
 	public int getId() {

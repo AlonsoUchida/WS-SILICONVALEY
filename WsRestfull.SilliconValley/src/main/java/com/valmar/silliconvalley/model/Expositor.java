@@ -17,6 +17,7 @@ import javax.validation.constraints.Size;
 public class Expositor {
 
 	@Id
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 

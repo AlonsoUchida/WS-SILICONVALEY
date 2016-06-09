@@ -1,6 +1,7 @@
 package com.valmar.silliconvalley.model;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -19,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Tipo {
 
 	@Id
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
@@ -26,9 +29,9 @@ public class Tipo {
 	@Column(name = "DESCRIPCION", nullable = false)
 	private String descripcion;
 	
-	@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy="tipos")
-	private List<Nota> notas;
+	@JsonBackReference
+	private Set<Nota> notas;
 
 	public int getId() {
 		return id;
@@ -46,11 +49,11 @@ public class Tipo {
 		this.descripcion = descripcion;
 	}
 
-	public List<Nota> getNotas() {
+	public Set<Nota> getNotas() {
 		return notas;
 	}
 
-	public void setNotas(List<Nota> notas) {
+	public void setNotas(Set<Nota> notas) {
 		this.notas = notas;
 	}
 	
