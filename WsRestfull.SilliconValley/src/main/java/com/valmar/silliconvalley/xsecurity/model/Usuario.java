@@ -6,13 +6,10 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,14 +24,14 @@ public class Usuario {
 
 	@Id
 	@Column(name = "ID")
-	private Long id;
+	private int id;
 
 	@Column(name = "NOMBRE", length = 200, unique = true)
 	@NotNull
 	@Size(min = 4, max = 200)
 	private String nombre;
 	
-	@Column(name = "EMPRESA", length = 100, unique = true)
+	@Column(name = "EMPRESA", length = 100)
 	@NotNull
 	@Size(min = 4, max = 100)
 	private String empresa;
@@ -44,24 +41,20 @@ public class Usuario {
     @NotNull
     private Date fechaNacimiento;
 	
-	@Column(name = "SEXO", length = 1, unique = true)
+	@Column(name = "SEXO", length = 1)
 	@NotNull
-	@Size(min = 1, max = 1)
 	private String sexo;
 	
-	@Column(name = "CONTRASENA", length = 100, unique = true)
+	@Column(name = "CONTRASENA", length = 100)
 	@NotNull
-	@Size(min = 4, max = 100)
 	private String contrasena;
 	
-	@Column(name = "CORREO", length = 100, unique = true)
+	@Column(name = "CORREO", length = 100)
 	@NotNull
-	@Size(min = 4, max = 100)
 	private String correo;
 	
-	@Column(name = "CARGO", length = 100, unique = true)
+	@Column(name = "CARGO", length = 100)
 	@NotNull
-	@Size(min = 4, max = 100)
 	private String cargo;
 	
 	@JsonIgnore
@@ -72,14 +65,14 @@ public class Usuario {
             inverseJoinColumns = {@JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID")})
     private List<Authority> authorities;
 	
-	@Column(name = "IMAGEN", nullable = false)
+	@Column(name = "IMAGEN")
 	private byte[] imagen;
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

@@ -42,7 +42,7 @@ public class UserDaoImpl extends AbstractDao<Integer, Usuario> implements UserDa
 	@Override
 	public Usuario getUserById(int userId) {
 		Criteria criteria = createEntityCriteria();
-		criteria.add(Restrictions.like("id",(long)userId)); 
+		criteria.add(Restrictions.like("id",userId)); 
 		Usuario usuario = (Usuario)criteria.uniqueResult();
 		return usuario;
 	}

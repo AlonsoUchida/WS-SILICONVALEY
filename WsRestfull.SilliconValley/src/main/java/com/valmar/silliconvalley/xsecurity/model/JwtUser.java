@@ -26,7 +26,7 @@ public class JwtUser implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 	
-	private final Long id;
+	private final int id;
     private final String nombre;
     private final String empresa;
     private final Date fechaNacimiento;    
@@ -36,7 +36,7 @@ public class JwtUser implements UserDetails {
     private String cargo;   
     private final Collection<? extends GrantedAuthority> authorities;
 
-    public JwtUser(Long id, String nombre, String empresa, Date fechaNacimiento, String sexo,
+    public JwtUser(int id, String nombre, String empresa, Date fechaNacimiento, String sexo,
     		String contrasena, String correo, String cargo, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.nombre = nombre;

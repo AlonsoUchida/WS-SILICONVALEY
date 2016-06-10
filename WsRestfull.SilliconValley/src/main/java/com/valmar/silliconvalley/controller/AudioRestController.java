@@ -46,7 +46,7 @@ public class AudioRestController {
         return new ResponseEntity<Audio>(audio, HttpStatus.OK);
     }
  
-    @RequestMapping(value = "/agregar/", method = RequestMethod.POST)
+    @RequestMapping(value = "/agregar", method = RequestMethod.POST)
     public ResponseEntity<Void> agregar(@RequestBody Audio audio,  UriComponentsBuilder ucBuilder) {       
  
         if (service.obtenerPorId(audio.getId())!=null) {

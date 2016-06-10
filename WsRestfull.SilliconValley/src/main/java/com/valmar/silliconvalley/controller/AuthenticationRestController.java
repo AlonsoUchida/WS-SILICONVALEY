@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.valmar.silliconvalley.services.UsuarioService;
+import com.valmar.silliconvalley.viewmodel.AuthenticationVM;
 import com.valmar.silliconvalley.xsecurity.controller.JwtTokenUtil;
 import com.valmar.silliconvalley.xsecurity.model.AuthenticationRequest;
 import com.valmar.silliconvalley.xsecurity.model.AuthenticationResponse;
+import com.valmar.silliconvalley.xsecurity.model.Usuario;
 import com.valmar.silliconvalley.xsecurity.services.UserService;
 
 @CrossOrigin
@@ -31,6 +34,9 @@ public class AuthenticationRestController {
     
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private UsuarioService usuarioService;
 
     @CrossOrigin
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
@@ -46,10 +52,15 @@ public class AuthenticationRestController {
     		
 	        final Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
 	        SecurityContextHolder.getContext().setAuthentication(authentication);
-	        String token = userService.generateToken(userId);
 	        
+	        AuthenticationVM authVM = new AuthenticationVM();
+	        String token = userService.generateToken(userId);
+	        Usuario usuario = usuarioService.obtenerPorId(userId);
+	        authVM.setIdUsuario(usuario.getId());
+	        authVM.setPassword(usuario.getContrasena());
+	        authVM.setToken(token);
 	        // Return the token
-	    	return new ResponseEntity<AuthenticationResponse>(new AuthenticationResponse(token), HttpStatus.OK);
+	    	return new ResponseEntity<AuthenticationVM>(authVM, HttpStatus.OK);
         }
     	else{
     		return new ResponseEntity<String>("Wrong Crendentials", HttpStatus.UNAUTHORIZED);

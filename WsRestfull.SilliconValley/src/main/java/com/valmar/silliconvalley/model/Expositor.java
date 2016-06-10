@@ -21,15 +21,12 @@ public class Expositor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Size(min = 3, max = 100)
 	@Column(name = "NOMBRE_EMPRESA", nullable = false)
 	private String nombreEmpresa;
 	
-	@Size(min = 3, max = 200)
 	@Column(name = "NOMBRE_EXPOSITOR", nullable = false)
 	private String nombreExpositor;
 	
-	@Size(min = 3, max = 200)
 	@Column(name = "TEMA", nullable = false)
 	private String tema;
 
@@ -37,7 +34,6 @@ public class Expositor {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaExposicion;
 	
-	@Size(min = 3, max = 1000)
 	@Column(name = "BIOGRAFIA_DETALLE", nullable = false)
 	private String biografiaDetalle;
 	

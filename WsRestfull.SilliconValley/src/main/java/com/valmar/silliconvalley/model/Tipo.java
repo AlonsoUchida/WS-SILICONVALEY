@@ -14,7 +14,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="TIPO")
@@ -25,7 +24,6 @@ public class Tipo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Size(min = 3, max = 100)
 	@Column(name = "DESCRIPCION", nullable = false)
 	private String descripcion;
 	

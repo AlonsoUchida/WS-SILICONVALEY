@@ -40,11 +40,10 @@ public class Nota {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Size(min = 3, max = 1000)
-	@Column(name = "COMENTARIO", nullable = false)
+	@Column(name = "COMENTARIO")
 	private String comentario;
 	
-	@Column(name = "FECHA_REGISTRO", nullable = false)
+	@Column(name = "FECHA_REGISTRO")
 	@Temporal(TemporalType.DATE)
 	private Date fechaRegistro;
 	
