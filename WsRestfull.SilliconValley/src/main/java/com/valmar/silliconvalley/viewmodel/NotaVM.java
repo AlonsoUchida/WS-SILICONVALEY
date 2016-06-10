@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NotaVM {
 
+	private int id;
 	private String comentario;
 	private Date fechaRegistro;
 	private int[] categorias;
@@ -11,6 +12,12 @@ public class NotaVM {
 	private int expositor_id;	
 	private int usuario_id;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getComentario() {
 		return comentario;
 	}

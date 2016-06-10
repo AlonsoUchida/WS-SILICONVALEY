@@ -5,7 +5,10 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Disjunction;
+import org.hibernate.criterion.ProjectionList;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -60,9 +63,20 @@ public class NotaDaoImpl extends AbstractDao<Integer, Nota> implements NotaDao {
 	}
 
 	@Override
-	public List<Nota> obtenerPorExpositor(int id) {
+	public List<Nota> obtenerPorExpositor(int id, int take, int skip, int page, int pageSize) {
 		Criteria criteria = getSession().createCriteria(Nota.class, "n");
-		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		int firstElement, finalElement;
+		if(page == 0)
+			firstElement = page;
+		else 
+			firstElement = (pageSize * (page - 1));
+		
+		finalElement = firstElement + pageSize;
+		
+		criteria.setFirstResult(firstElement);
+		criteria.setMaxResults(finalElement);
+		
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);		
 		criteria.add(Restrictions.eq("expositor.id", id));
 		List<Nota> notas = (List<Nota>) criteria.list();
 		return notas;
@@ -98,6 +112,15 @@ public class NotaDaoImpl extends AbstractDao<Integer, Nota> implements NotaDao {
 
 		List<Nota> notas = (List<Nota>) criteria.list();
 		return notas;
+	}
+
+	@Override
+	public void actualizar(Nota nota) {
+		try {
+			merge(nota);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -44,8 +44,13 @@ public class NotaServiceImpl implements NotaService{
 	}
 
 	@Override
-	public List<Nota> obtenerPorExpositor(int id) {
-		return notaDao.obtenerPorExpositor(id);
+	public List<Nota> obtenerPorExpositor(int id, int take, int skip, int page, int pageSize){
+		return notaDao.obtenerPorExpositor(id, take, skip, page, pageSize);
+	}
+
+	@Override
+	public void actualizar(Nota nota) {
+		notaDao.actualizar(nota);		
 	}
 
 }

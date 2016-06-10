@@ -93,18 +93,51 @@ public class NotaRestController {
         nota.setCategorias(new HashSet<Categoria>(categorias));
         nota.setTipos(new HashSet<Tipo>(tipos));
         
-        /*Expositor expositor = expositorService.obtenerPorId(notaVM.getExpositor_id());
+        Expositor expositor = expositorService.obtenerPorId(notaVM.getExpositor_id());
         nota.setExpositor(expositor);
+              
         Usuario usuario = userService.getUserById(notaVM.getUsuario_id());
-        nota.setUsuario(usuario);*/
-        
-        nota.setExpositor_id(notaVM.getExpositor_id());
-        nota.setUsuario_id(notaVM.getUsuario_id());
-        
+        nota.setUsuario(usuario);
+
         service.agregar(nota); 
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/nota/{id}").buildAndExpand(nota.getId()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+    }
+    
+    @RequestMapping(value = "/actualizar", method = RequestMethod.PUT)
+    public ResponseEntity<Void> actualizar(@RequestBody NotaVM notaVM,  UriComponentsBuilder ucBuilder) {        
+        Nota nota = new Nota();
+        nota.setId(notaVM.getId());
+        nota.setComentario(notaVM.getComentario());
+        nota.setFechaRegistro(notaVM.getFechaRegistro());
+        
+        List<Categoria> categorias = new ArrayList<>();
+        List<Tipo> tipos = new ArrayList<>();
+        for(int id : notaVM.getCategorias()){
+        	Categoria caterogia = categoriaService.listarCategorias()
+        			.stream().filter(c -> c.getId() == id).findFirst().orElse(null);
+        	categorias.add(caterogia);
+        }
+        nota.setCategorias(new HashSet<Categoria>(categorias));
+        for(int id : notaVM.getTipos()){
+        	Tipo tipo = tipoService.listarTipos()
+        			.stream().filter(c -> c.getId() == id).findFirst().orElse(null);
+        	tipos.add(tipo);
+        }
+        nota.setCategorias(new HashSet<Categoria>(categorias));
+        nota.setTipos(new HashSet<Tipo>(tipos));
+        
+        Expositor expositor = expositorService.obtenerPorId(notaVM.getExpositor_id());
+        nota.setExpositor(expositor);
+              
+        Usuario usuario = userService.getUserById(notaVM.getUsuario_id());
+        nota.setUsuario(usuario);
+
+        service.actualizar(nota); 
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(ucBuilder.path("/nota/{id}").buildAndExpand(nota.getId()).toUri());
+        return new ResponseEntity<Void>(headers, HttpStatus.OK);
     }
     
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.DELETE)
@@ -129,9 +162,13 @@ public class NotaRestController {
         return new ResponseEntity<List<Nota>>(notas, HttpStatus.OK);
     }
     
-    @RequestMapping(value = "/obtenerPorExpositor", params= {"id"},  method = RequestMethod.GET)
-    public ResponseEntity<List<Nota>> obtenerPorExpositor(@RequestParam("id") Integer id) {
-    	List<Nota> notas = service.obtenerPorExpositor(id);
+    @RequestMapping(value = "/obtenerPorExpositor", params= {"id", "take", "skip", "page", "pageSize"},  method = RequestMethod.GET)
+    public ResponseEntity<List<Nota>> obtenerPorExpositor(@RequestParam("id") Integer id,
+    		@RequestParam("take") Integer take,
+    		@RequestParam("skip") Integer skip,
+    		@RequestParam("page") Integer page,
+    		@RequestParam("pageSize") Integer pageSize) {
+    	List<Nota> notas = service.obtenerPorExpositor(id, take, skip, page, pageSize);
     	if(notas.isEmpty()){
             return new ResponseEntity<List<Nota>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
         }

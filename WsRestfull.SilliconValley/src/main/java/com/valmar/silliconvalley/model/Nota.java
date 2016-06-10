@@ -47,7 +47,7 @@ public class Nota {
 	@Temporal(TemporalType.DATE)
 	private Date fechaRegistro;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "nota", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "nota", cascade = CascadeType.ALL)
 	@JsonBackReference
 	private Set<Audio> audios;
 	
@@ -67,21 +67,15 @@ public class Nota {
 	@JsonManagedReference
 	private Set<Tipo> tipos;
 	
-	@Column(name="ID_EXPOSITOR")
-	private int expositor_id;
-	
-	@Column(name="ID_USUARIO")
-	private int usuario_id;
-	
-	/*@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="ID_EXPOSITOR")
 	@JsonManagedReference
 	private Expositor expositor;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="ID_USUARIO")
 	@JsonManagedReference
-	private Usuario usuario;*/
+	private Usuario usuario;
 
 	public int getId() {
 		return id;
@@ -115,7 +109,7 @@ public class Nota {
 		this.audios = audios;
 	}
 
-	/*public Expositor getExpositor() {
+	public Expositor getExpositor() {
 		return expositor;
 	}
 
@@ -129,7 +123,7 @@ public class Nota {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}*/
+	}
 
 	public Set<Categoria> getCategorias() {
 		return categorias;
@@ -146,23 +140,5 @@ public class Nota {
 	public void setTipos(Set<Tipo> tipos) {
 		this.tipos = tipos;
 	}
-
-	public int getExpositor_id() {
-		return expositor_id;
-	}
-
-	public void setExpositor_id(int expositor_id) {
-		this.expositor_id = expositor_id;
-	}
-
-	public int getUsuario_id() {
-		return usuario_id;
-	}
-
-	public void setUsuario_id(int usuario_id) {
-		this.usuario_id = usuario_id;
-	}
-	
-	
 	
 }
