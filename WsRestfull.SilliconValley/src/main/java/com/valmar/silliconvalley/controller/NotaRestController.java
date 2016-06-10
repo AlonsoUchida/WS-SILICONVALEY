@@ -93,10 +93,13 @@ public class NotaRestController {
         nota.setCategorias(new HashSet<Categoria>(categorias));
         nota.setTipos(new HashSet<Tipo>(tipos));
         
-        Expositor expositor = expositorService.obtenerPorId(notaVM.getExpositor_id());
+        /*Expositor expositor = expositorService.obtenerPorId(notaVM.getExpositor_id());
         nota.setExpositor(expositor);
         Usuario usuario = userService.getUserById(notaVM.getUsuario_id());
-        nota.setUsuario(usuario);
+        nota.setUsuario(usuario);*/
+        
+        nota.setExpositor_id(notaVM.getExpositor_id());
+        nota.setUsuario_id(notaVM.getUsuario_id());
         
         service.agregar(nota); 
         HttpHeaders headers = new HttpHeaders();
