@@ -51,7 +51,7 @@ public class Nota {
 	@JsonBackReference
 	private Set<Audio> audios;
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(
 	      name="CATEGORIAXNOTA",
 	      joinColumns=@JoinColumn(name="ID_NOTA", referencedColumnName="ID"),
@@ -59,7 +59,7 @@ public class Nota {
 	@JsonManagedReference
 	private Set<Categoria> categorias;
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL )
 	  @JoinTable(
 	      name="TIPOXNOTA",
 	      joinColumns=@JoinColumn(name="ID_NOTA", referencedColumnName="ID"),
