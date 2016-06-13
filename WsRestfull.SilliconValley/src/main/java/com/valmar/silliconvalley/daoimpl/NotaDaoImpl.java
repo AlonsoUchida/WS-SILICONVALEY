@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Disjunction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -76,8 +77,8 @@ public class NotaDaoImpl extends AbstractDao<Integer, Nota> implements NotaDao {
 	public List<Nota> obtenerPorExpositor(int id, int take, int skip, int page, int pageSize) {
 		Criteria criteria = getSession().createCriteria(Nota.class, "n");
 		int firstElement;
-		if(page == 0)
-			firstElement = page;
+		if(page == 1)
+			firstElement = page - 1;
 		else 
 			firstElement = (pageSize * (page - 1));
 				
@@ -94,6 +95,7 @@ public class NotaDaoImpl extends AbstractDao<Integer, Nota> implements NotaDao {
 				.add(Projections.property("usuario.id"))
 				.add(Projections.groupProperty("n.id"))
 				);
+		criteria.addOrder(Order.desc("n.id"));
 		
 		List<Object[]> results = criteria.list();
 		List<Nota> notas = new ArrayList<>();
