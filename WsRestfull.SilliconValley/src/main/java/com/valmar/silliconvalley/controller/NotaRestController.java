@@ -117,35 +117,46 @@ public class NotaRestController {
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
     
-    @RequestMapping(value = "/actualizar", method = RequestMethod.PUT)
-    public ResponseEntity<Void> actualizar(@RequestBody NotaVM notaVM,  UriComponentsBuilder ucBuilder) {        
+    @RequestMapping(value = "/actualizar", params= {"id", "comentario" , "fechaRegistro", "categorias", "tipos", "expositor_id", "usuario_id"}, method = RequestMethod.PUT)
+    public ResponseEntity<Void> actualizar(@RequestParam("id") Integer  id,
+    		@RequestParam("comentario") String  comentario,
+    		@RequestParam("fechaRegistro") String  fechaRegistro,
+    		@RequestParam("categorias") Integer[]  categorias,
+    		@RequestParam("tipos") Integer[]  tipos,
+    		@RequestParam("expositor_id") Integer  expositor_id,
+    		@RequestParam("usuario_id") Integer  usuario_id,
+    		UriComponentsBuilder ucBuilder) {        
         Nota nota = new Nota();
-        nota.setId(notaVM.getId());
-        nota.setComentario(notaVM.getComentario());
-        nota.setFechaRegistro(notaVM.getFechaRegistro());
+        nota.setId(id);
+        nota.setComentario(comentario);
+        nota.setFechaRegistro(Util.getDateFromString(fechaRegistro));
         
-        List<Categoria> categorias = new ArrayList<>();
-        List<Tipo> tipos = new ArrayList<>();
-        for(int id : notaVM.getCategorias()){
+        List<Categoria> _categorias = new ArrayList<>();
+        List<Tipo> _tipos = new ArrayList<>();
+        for(int _id : categorias){
         	Categoria caterogia = categoriaService.listarCategorias()
-        			.stream().filter(c -> c.getId() == id).findFirst().orElse(null);
-        	categorias.add(caterogia);
+        			.stream().filter(c -> c.getId() == _id).findFirst().orElse(null);
+        	_categorias.add(caterogia);
         }
-        nota.setCategorias(new HashSet<Categoria>(categorias));
-        for(int id : notaVM.getTipos()){
+        nota.setCategorias(new HashSet<Categoria>(_categorias));
+        for(int _id : tipos){
         	Tipo tipo = tipoService.listarTipos()
-        			.stream().filter(c -> c.getId() == id).findFirst().orElse(null);
-        	tipos.add(tipo);
+        			.stream().filter(c -> c.getId() == _id).findFirst().orElse(null);
+        	_tipos.add(tipo);
         }
-        nota.setCategorias(new HashSet<Categoria>(categorias));
-        nota.setTipos(new HashSet<Tipo>(tipos));
+        nota.setCategorias(new HashSet<Categoria>(_categorias));
+        nota.setTipos(new HashSet<Tipo>(_tipos));
         
-        Expositor expositor = expositorService.obtenerPorId(notaVM.getExpositor_id());
+        Expositor expositor = expositorService.obtenerPorId(expositor_id);
+        if(expositor==null)
+        	return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);       
         nota.setExpositor(expositor);
               
-        Usuario usuario = userService.getUserById(notaVM.getUsuario_id());
+        Usuario usuario = userService.getUserById(usuario_id);
+        if(usuario==null)
+        	return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
         nota.setUsuario(usuario);
-
+        
         service.actualizar(nota); 
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/nota/{id}").buildAndExpand(nota.getId()).toUri());
