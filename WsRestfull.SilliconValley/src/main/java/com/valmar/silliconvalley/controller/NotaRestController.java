@@ -73,6 +73,7 @@ public class NotaRestController {
         return new ResponseEntity<Nota>(nota, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/agregar", params= {"comentario" , "fechaRegistro", "categorias", "tipos", "expositor_id", "usuario_id"},  method = RequestMethod.POST)
     public ResponseEntity<Void> agregar(@RequestParam("comentario") String  comentario,
     		@RequestParam("fechaRegistro") String  fechaRegistro,
     		@RequestParam("categorias") Integer[]  categorias,
@@ -101,9 +102,13 @@ public class NotaRestController {
         nota.setTipos(new HashSet<Tipo>(_tipos));
         
         Expositor expositor = expositorService.obtenerPorId(expositor_id);
+        if(expositor==null)
+        	return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);       
         nota.setExpositor(expositor);
               
         Usuario usuario = userService.getUserById(usuario_id);
+        if(usuario==null)
+        	return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
         nota.setUsuario(usuario);
 
         service.agregar(nota); 
