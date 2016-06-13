@@ -17,4 +17,15 @@ public class Util {
 			return null;
 		}
 	}
+	
+	public static Date getDateFromStringSecondFormat(String dateString){
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			return (Date) format.parse(dateString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

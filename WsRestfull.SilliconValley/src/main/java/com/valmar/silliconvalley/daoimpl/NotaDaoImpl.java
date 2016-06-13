@@ -1,5 +1,6 @@
 package com.valmar.silliconvalley.daoimpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.valmar.silliconvalley.dao.AbstractDao;
 import com.valmar.silliconvalley.dao.NotaDao;
 import com.valmar.silliconvalley.model.Nota;
+import com.valmar.silliconvalley.util.Util;
 
 @Repository("notaDao")
 @EnableTransactionManagement
@@ -40,9 +42,17 @@ public class NotaDaoImpl extends AbstractDao<Integer, Nota> implements NotaDao {
 	@Override
 	public void eliminar(int id) {
 		try {
-			Query query = getSession().createSQLQuery("delete from NOTA where id = :id");
-			query.setInteger("id", id);
-			query.executeUpdate();
+			Query query1 = getSession().createSQLQuery("delete from TIPOXNOTA where id_nota = :id");
+			query1.setInteger("id", id);
+			query1.executeUpdate();
+			
+			Query query2 = getSession().createSQLQuery("delete from CATEGORIAXNOTA where id_nota = :id");
+			query2.setInteger("id", id);
+			query2.executeUpdate();
+			
+			Query query3 = getSession().createSQLQuery("delete from NOTA where id = :id");
+			query3.setInteger("id", id);
+			query3.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -65,20 +75,36 @@ public class NotaDaoImpl extends AbstractDao<Integer, Nota> implements NotaDao {
 	@Override
 	public List<Nota> obtenerPorExpositor(int id, int take, int skip, int page, int pageSize) {
 		Criteria criteria = getSession().createCriteria(Nota.class, "n");
-		int firstElement, finalElement;
+		int firstElement;
 		if(page == 0)
 			firstElement = page;
 		else 
 			firstElement = (pageSize * (page - 1));
-		
-		finalElement = firstElement + pageSize;
-		
+				
 		criteria.setFirstResult(firstElement);
-		criteria.setMaxResults(finalElement);
+		criteria.setMaxResults(pageSize);
 		
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);		
 		criteria.add(Restrictions.eq("expositor.id", id));
-		List<Nota> notas = (List<Nota>) criteria.list();
+		criteria.setProjection(Projections.projectionList()
+				.add(Projections.property("n.id"))
+				.add(Projections.property("n.comentario"))
+				.add(Projections.property("n.fechaRegistro"))
+				.add(Projections.property("expositor.id"))
+				.add(Projections.property("usuario.id"))
+				.add(Projections.groupProperty("n.id"))
+				);
+		
+		List<Object[]> results = criteria.list();
+		List<Nota> notas = new ArrayList<>();
+		for (Object[] row : results) {
+			Nota nota = new Nota();
+			nota.setId(Integer.parseInt(row[0].toString()));
+			nota.setComentario(row[1].toString());
+			nota.setFechaRegistro(Util.getDateFromStringSecondFormat(row[2].toString()));
+			notas.add(nota);
+		}
+
 		return notas;
 	}
 	
