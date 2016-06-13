@@ -133,7 +133,7 @@ public class NotaDaoImpl extends AbstractDao<Integer, Nota> implements NotaDao {
 			distOr.add(restOr);			
 		}
 		if(usuarioId!=null)
-			distOr.add(Restrictions.eq("usuario.id", new Long(usuarioId)));
+			distOr.add(Restrictions.eq("usuario.id", usuarioId));
 		if(expositorId!=null)
 			distOr.add(Restrictions.eq("expositor.id", expositorId));
 		criteria.add(distOr);
