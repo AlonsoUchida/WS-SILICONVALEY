@@ -1,6 +1,7 @@
 package com.valmar.silliconvalley.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,6 +28,7 @@ import com.valmar.silliconvalley.services.CategoriaService;
 import com.valmar.silliconvalley.services.ExpositorService;
 import com.valmar.silliconvalley.services.NotaService;
 import com.valmar.silliconvalley.services.TipoService;
+import com.valmar.silliconvalley.util.Util;
 import com.valmar.silliconvalley.viewmodel.NotaVM;
 import com.valmar.silliconvalley.xsecurity.model.Usuario;
 import com.valmar.silliconvalley.xsecurity.services.UserService;
@@ -70,33 +72,38 @@ public class NotaRestController {
         }
         return new ResponseEntity<Nota>(nota, HttpStatus.OK);
     }
- 
-    @RequestMapping(value = "/agregar", method = RequestMethod.POST)
-    public ResponseEntity<Void> agregar(@RequestBody NotaVM notaVM,  UriComponentsBuilder ucBuilder) {        
+
+    public ResponseEntity<Void> agregar(@RequestParam("comentario") String  comentario,
+    		@RequestParam("fechaRegistro") String  fechaRegistro,
+    		@RequestParam("categorias") Integer[]  categorias,
+    		@RequestParam("tipos") Integer[]  tipos,
+    		@RequestParam("expositor_id") Integer  expositor_id,
+    		@RequestParam("usuario_id") Integer  usuario_id
+    		,UriComponentsBuilder ucBuilder) {        
         Nota nota = new Nota();
-        nota.setComentario(notaVM.getComentario());
-        nota.setFechaRegistro(notaVM.getFechaRegistro());
+        nota.setComentario(comentario);
+        nota.setFechaRegistro(Util.getDateFromString(fechaRegistro));
         
-        List<Categoria> categorias = new ArrayList<>();
-        List<Tipo> tipos = new ArrayList<>();
-        for(int id : notaVM.getCategorias()){
+        List<Categoria> _categorias = new ArrayList<>();
+        List<Tipo> _tipos = new ArrayList<>();
+        for(int id : categorias){
         	Categoria caterogia = categoriaService.listarCategorias()
         			.stream().filter(c -> c.getId() == id).findFirst().orElse(null);
-        	categorias.add(caterogia);
+        	_categorias.add(caterogia);
         }
-        nota.setCategorias(new HashSet<Categoria>(categorias));
-        for(int id : notaVM.getTipos()){
+        nota.setCategorias(new HashSet<Categoria>(_categorias));
+        for(int id : tipos){
         	Tipo tipo = tipoService.listarTipos()
         			.stream().filter(c -> c.getId() == id).findFirst().orElse(null);
-        	tipos.add(tipo);
+        	_tipos.add(tipo);
         }
-        nota.setCategorias(new HashSet<Categoria>(categorias));
-        nota.setTipos(new HashSet<Tipo>(tipos));
+        nota.setCategorias(new HashSet<Categoria>(_categorias));
+        nota.setTipos(new HashSet<Tipo>(_tipos));
         
-        Expositor expositor = expositorService.obtenerPorId(notaVM.getExpositor_id());
+        Expositor expositor = expositorService.obtenerPorId(expositor_id);
         nota.setExpositor(expositor);
               
-        Usuario usuario = userService.getUserById(notaVM.getUsuario_id());
+        Usuario usuario = userService.getUserById(usuario_id);
         nota.setUsuario(usuario);
 
         service.agregar(nota); 

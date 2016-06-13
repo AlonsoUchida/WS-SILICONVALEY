@@ -2,6 +2,8 @@ package com.valmar.silliconvalley.controller;
 
 import java.util.List;
 
+import javax.persistence.Column;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -12,11 +14,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.valmar.silliconvalley.model.Audio;
+import com.valmar.silliconvalley.model.Nota;
 import com.valmar.silliconvalley.services.AudioService;
+import com.valmar.silliconvalley.services.NotaService;
 
 @CrossOrigin
 @RestController
@@ -25,6 +30,8 @@ public class AudioRestController {
 
 	@Autowired
     AudioService service;
+	@Autowired
+	NotaService notaService;
     /*
      * This method will list all existing audios.
      */
@@ -46,15 +53,20 @@ public class AudioRestController {
         return new ResponseEntity<Audio>(audio, HttpStatus.OK);
     }
  
-    @RequestMapping(value = "/agregar", method = RequestMethod.POST)
-    public ResponseEntity<Void> agregar(@RequestBody Audio audio,  UriComponentsBuilder ucBuilder) {       
- 
-        if (service.obtenerPorId(audio.getId())!=null) {
-            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-        } 
-        service.agregar(audio); 
+    @RequestMapping(value = "/agregar", params= {"audio" , "notaid" },  method = RequestMethod.POST)
+    public ResponseEntity<Void> agregar(@RequestParam("audio") byte[]  audio,
+    		@RequestParam("notaId") Integer  notaId,
+    		UriComponentsBuilder ucBuilder) {       
+    	Audio audioBean = new Audio();
+    	audioBean.setAudio(audio);
+    	Nota nota = notaService.obtenerPorId(notaId);
+    	if(nota==null){
+    		return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+    	}
+    	audioBean.setNota(nota);
+        service.agregar(audioBean); 
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/audio/{id}").buildAndExpand(audio.getId()).toUri());
+        headers.setLocation(ucBuilder.path("/audio/{id}").buildAndExpand(audioBean.getId()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
     
