@@ -110,7 +110,7 @@ public class NotaDaoImpl extends AbstractDao<Integer, Nota> implements NotaDao {
 			nota.setId(Integer.parseInt(row[0].toString()));
 			nota.setComentario(row[1].toString());
 			nota.setFechaRegistro(Util.getDateFromStringSecondFormat(row[2].toString()));
-		 	Usuario usuario = usuarioDao.obtenerPorId(id);
+		 	Usuario usuario = usuarioDao.obtenerPorId(Integer.parseInt(row[4].toString()));
 		 	nota.setUsuario(usuario);
 			notas.add(nota);
 		}
