@@ -11,18 +11,24 @@ import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.Transformers;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.valmar.silliconvalley.dao.AbstractDao;
 import com.valmar.silliconvalley.dao.NotaDao;
+import com.valmar.silliconvalley.dao.UsuarioDao;
 import com.valmar.silliconvalley.model.Nota;
 import com.valmar.silliconvalley.util.Util;
+import com.valmar.silliconvalley.xsecurity.model.Usuario;
 
 @Repository("notaDao")
 @EnableTransactionManagement
 public class NotaDaoImpl extends AbstractDao<Integer, Nota> implements NotaDao {
 
+	@Autowired
+	UsuarioDao usuarioDao;
+	
 	@Override
 	public Nota obtenerPorId(int id) {
 		Criteria criteria = createEntityCriteria();
@@ -104,6 +110,8 @@ public class NotaDaoImpl extends AbstractDao<Integer, Nota> implements NotaDao {
 			nota.setId(Integer.parseInt(row[0].toString()));
 			nota.setComentario(row[1].toString());
 			nota.setFechaRegistro(Util.getDateFromStringSecondFormat(row[2].toString()));
+		 	Usuario usuario = usuarioDao.obtenerPorId(id);
+		 	nota.setUsuario(usuario);
 			notas.add(nota);
 		}
 
