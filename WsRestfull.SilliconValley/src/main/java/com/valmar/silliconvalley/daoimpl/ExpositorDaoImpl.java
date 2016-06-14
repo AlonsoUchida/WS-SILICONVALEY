@@ -1,8 +1,11 @@
 package com.valmar.silliconvalley.daoimpl;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -22,8 +25,21 @@ public class ExpositorDaoImpl extends AbstractDao<Integer, Expositor> implements
 	@Override
 	public List<Expositor> listarExpositores() {
 		try {
-			Criteria criteria = createEntityCriteria();
-	        return (List<Expositor>) criteria.list();
+			List<Expositor> listaFinal = new ArrayList<>();
+			
+			Criteria criteria1 = createEntityCriteria();
+			criteria1.add(Restrictions.ge("fechaExposicion", new Date()));
+			List<Expositor> lista1 = (List<Expositor>) criteria1.list();
+			
+			
+			Criteria criteria2 = createEntityCriteria();
+			criteria2.add(Restrictions.lt("fechaExposicion", new Date()));
+			List<Expositor> lista2 = (List<Expositor>) criteria2.list();
+			
+			listaFinal.addAll(lista1);
+			listaFinal.addAll(lista2);
+			
+			return listaFinal;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
