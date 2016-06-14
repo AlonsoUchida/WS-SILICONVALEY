@@ -80,7 +80,8 @@ public class NotaDaoImpl extends AbstractDao<Integer, Nota> implements NotaDao {
 	}
 
 	@Override
-	public List<Nota> obtenerPorExpositor(int id, int take, int skip, int page, int pageSize) {
+	public List<Nota> obtenerPorExpositor(int id, int take, int skip, int page, int pageSize, boolean isPaged) {
+		
 		Criteria criteria = getSession().createCriteria(Nota.class, "n");
 		int firstElement;
 		if(page == 1)
@@ -88,8 +89,10 @@ public class NotaDaoImpl extends AbstractDao<Integer, Nota> implements NotaDao {
 		else 
 			firstElement = (pageSize * (page - 1));
 				
-		criteria.setFirstResult(firstElement);
-		criteria.setMaxResults(pageSize);
+		if(isPaged){
+			criteria.setFirstResult(firstElement);
+			criteria.setMaxResults(pageSize);
+		}
 		
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);		
 		criteria.add(Restrictions.eq("expositor.id", id));

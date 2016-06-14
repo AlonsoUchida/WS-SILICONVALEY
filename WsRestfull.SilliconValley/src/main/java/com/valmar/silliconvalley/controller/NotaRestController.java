@@ -190,8 +190,12 @@ public class NotaRestController {
     		@RequestParam("take") Integer take,
     		@RequestParam("skip") Integer skip,
     		@RequestParam("page") Integer page,
-    		@RequestParam("pageSize") Integer pageSize) {
-    	List<Nota> notas = service.obtenerPorExpositor(id, take, skip, page, pageSize);
+    		@RequestParam("pageSize") Integer pageSize,
+    		@RequestParam("isPaged") Integer isPaged) {
+    	boolean _isPaged = false;
+    	_isPaged = (isPaged==1);
+    		
+    	List<Nota> notas = service.obtenerPorExpositor(id, take, skip, page, pageSize, _isPaged);
     	if(notas.isEmpty()){
             return new ResponseEntity<List<Nota>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
         }
