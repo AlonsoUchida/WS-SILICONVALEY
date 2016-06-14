@@ -53,7 +53,7 @@ public class AudioRestController {
         return new ResponseEntity<Audio>(audio, HttpStatus.OK);
     }
  
-    @RequestMapping(value = "/agregar", params= {"audio" , "notaid" },  method = RequestMethod.POST)
+    @RequestMapping(value = "/agregar", params= {"audio" , "notaId" },  method = RequestMethod.POST)
     public ResponseEntity<Void> agregar(@RequestParam("audio") String  audio,
     		@RequestParam("notaId") Integer  notaId,
     		UriComponentsBuilder ucBuilder) {       
