@@ -185,13 +185,13 @@ public class NotaRestController {
         return new ResponseEntity<List<Nota>>(notas, HttpStatus.OK);
     }
     
-    @RequestMapping(value = "/obtenerPorExpositor", params= {"id", "take", "skip", "page", "pageSize"},  method = RequestMethod.GET)
+    @RequestMapping(value = "/obtenerPorExpositor", params= {"id", "isPaged","take", "skip", "page", "pageSize"},  method = RequestMethod.GET)
     public ResponseEntity<List<Nota>> obtenerPorExpositor(@RequestParam("id") Integer id,
+    		@RequestParam("isPaged") Integer isPaged,
     		@RequestParam("take") Integer take,
     		@RequestParam("skip") Integer skip,
     		@RequestParam("page") Integer page,
-    		@RequestParam("pageSize") Integer pageSize,
-    		@RequestParam("isPaged") Integer isPaged) {
+    		@RequestParam("pageSize") Integer pageSize){
     	boolean _isPaged = false;
     	_isPaged = (isPaged==1);
     		
