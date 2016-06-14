@@ -21,8 +21,8 @@ public class Audio {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "AUDIO", nullable = false)
-	private byte[] audio;
+	@Column(name = "AUDIO")
+	private String audio;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="ID_NOTA")
@@ -37,11 +37,11 @@ public class Audio {
 		this.id = id;
 	}
 
-	public byte[] getAudio() {
+	public String getAudio() {
 		return audio;
 	}
 
-	public void setAudio(byte[] audio) {
+	public void setAudio(String audio) {
 		this.audio = audio;
 	}
 
