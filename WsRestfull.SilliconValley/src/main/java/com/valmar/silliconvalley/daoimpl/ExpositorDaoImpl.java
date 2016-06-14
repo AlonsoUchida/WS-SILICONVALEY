@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Expression;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -29,17 +30,20 @@ public class ExpositorDaoImpl extends AbstractDao<Integer, Expositor> implements
 			
 			Criteria criteria1 = createEntityCriteria();
 			criteria1.add(Restrictions.ge("fechaExposicion", new Date()));
+			criteria1.addOrder(Order.asc("fechaExposicion"));
 			List<Expositor> lista1 = (List<Expositor>) criteria1.list();
 			
 			
 			Criteria criteria2 = createEntityCriteria();
 			criteria2.add(Restrictions.lt("fechaExposicion", new Date()));
+			criteria2.addOrder(Order.asc("fechaExposicion"));
 			List<Expositor> lista2 = (List<Expositor>) criteria2.list();
 			
 			listaFinal.addAll(lista1);
 			listaFinal.addAll(lista2);
 			
 			return listaFinal;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
