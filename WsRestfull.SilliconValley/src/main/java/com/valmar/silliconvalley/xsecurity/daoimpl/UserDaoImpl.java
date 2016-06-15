@@ -34,8 +34,11 @@ public class UserDaoImpl extends AbstractDao<Integer, Usuario> implements UserDa
 		query.setString("password", password);
 		@SuppressWarnings("unchecked")
 		List<Object[]> results = query.list();
-		Object obj = results.get(0);
-		userId = (int) obj;
+		Object obj = null;
+		if(!results.isEmpty()){
+			obj = results.get(0);
+			userId = (int) obj;
+		}
 		return userId;
 	}
 

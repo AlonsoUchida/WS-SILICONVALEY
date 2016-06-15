@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -21,6 +22,7 @@ public class AudioDaoImpl extends AbstractDao<Integer, Audio> implements AudioDa
 	public List<Audio> listarPorNota(int id) {
 		Criteria criteria = createEntityCriteria();
 		criteria.add(Restrictions.eq("nota.id", id));
+		criteria.addOrder(Order.desc("id"));
 		List<Audio> _audios = criteria.list();
 		return _audios;
 	}

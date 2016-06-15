@@ -26,46 +26,46 @@ import com.valmar.silliconvalley.xsecurity.services.UserService;
 @RestController
 public class AuthenticationRestController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+	@Autowired
+	private AuthenticationManager authenticationManager;
 
-    @Autowired
-    private JwtTokenUtil jwtTokenUtil;
-    
-    @Autowired
-    private UserService userService;
-    
-    @Autowired
-    private UsuarioService usuarioService;
+	@Autowired
+	private JwtTokenUtil jwtTokenUtil;
 
-    @CrossOrigin
-    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(@RequestHeader("Authorization") String authorization) throws AuthenticationException {
+	@Autowired
+	private UserService userService;
 
-    	AuthenticationRequest authenticationRequest = jwtTokenUtil.getAuthenticationRequest(authorization);
-    	int userId = userService.validateUser(authenticationRequest.getUsername(), authenticationRequest.getPassword());
-    	if(userId!=0){
-    		UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
-                    authenticationRequest.getUsername(),
-                    authenticationRequest.getPassword()
-            );
-    		
-	        final Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
-	        SecurityContextHolder.getContext().setAuthentication(authentication);
-	        
-	        AuthenticationVM authVM = new AuthenticationVM();
-	        String token = userService.generateToken(userId);
-	        Usuario usuario = usuarioService.obtenerPorId(userId);
-	        authVM.setIdUsuario(usuario.getId());
-	        authVM.setPassword(usuario.getContrasena());
-	        authVM.setToken(token);
-	        // Return the token
-	    	return new ResponseEntity<AuthenticationVM>(authVM, HttpStatus.OK);
-        }
-    	else{
-    		return new ResponseEntity<String>("Wrong Crendentials", HttpStatus.UNAUTHORIZED);
-    	}    
-    	
-    }
+	@Autowired
+	private UsuarioService usuarioService;
+
+	@CrossOrigin
+	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+	public ResponseEntity<?> createAuthenticationToken(@RequestHeader("Authorization") String authorization)
+			throws AuthenticationException {
+
+		AuthenticationRequest authenticationRequest = jwtTokenUtil.getAuthenticationRequest(authorization);
+		Usuario _usuario = userService.loadUserByUsername(authenticationRequest.getUsername());
+		if (_usuario == null)
+			return new ResponseEntity<String>("Usuario no existe", HttpStatus.NOT_FOUND);
+		int userId = userService.validateUser(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+		if (userId == 0)
+			return new ResponseEntity<String>("Crendeciales incorrectas", HttpStatus.UNAUTHORIZED);
+		
+		UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
+				authenticationRequest.getUsername(), authenticationRequest.getPassword());
+
+		final Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+
+		AuthenticationVM authVM = new AuthenticationVM();
+		String token = userService.generateToken(userId);
+		Usuario usuario = usuarioService.obtenerPorId(userId);
+		authVM.setIdUsuario(usuario.getId());
+		authVM.setPassword(usuario.getContrasena());
+		authVM.setToken(token);
+		// Return the token
+		return new ResponseEntity<AuthenticationVM>(authVM, HttpStatus.OK);
+
+	}
 
 }
