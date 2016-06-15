@@ -16,6 +16,15 @@ import com.valmar.silliconvalley.model.Audio;
 @EnableTransactionManagement
 public class AudioDaoImpl extends AbstractDao<Integer, Audio> implements AudioDao{
 
+	
+	@Override
+	public List<Audio> listarPorNota(int id) {
+		Criteria criteria = createEntityCriteria();
+		criteria.add(Restrictions.eq("nota.id", id));
+		List<Audio> _audios = criteria.list();
+		return _audios;
+	}
+	
 	@Override
 	public Audio obtenerPorId(int id) {
 		Criteria criteria = createEntityCriteria();

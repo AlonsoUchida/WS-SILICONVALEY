@@ -52,6 +52,15 @@ public class AudioRestController {
         }
         return new ResponseEntity<Audio>(audio, HttpStatus.OK);
     }
+    
+    @RequestMapping(value = "/listarPorNota/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Audio>> listarPorNota(@PathVariable("id") int id) {
+    	List<Audio> audios = service.listarPorNota(id);
+        if (audios == null) {
+            return new ResponseEntity<List<Audio>>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<List<Audio>>(audios, HttpStatus.OK);
+    }
  
     @RequestMapping(value = "/agregar", params= {"audio" , "notaId" },  method = RequestMethod.POST)
     public ResponseEntity<Void> agregar(@RequestParam("audio") String  audio,
@@ -66,7 +75,7 @@ public class AudioRestController {
     	audioBean.setNota(nota);
         service.agregar(audioBean); 
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/audio/{id}").buildAndExpand(audioBean.getId()).toUri());
+        headers.setLocation(ucBuilder.path("/audio/{audio}").buildAndExpand(audioBean.getAudio()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
     

@@ -16,6 +16,11 @@ public class AudioServiceImpl implements AudioService{
 	
 	@Autowired
 	private AudioDao audioDao;
+	
+	@Override
+	public List<Audio> listarPorNota(int id) {		
+		return audioDao.listarPorNota(id);
+	}
 
 	@Override
 	public Audio obtenerPorId(int id) {		
