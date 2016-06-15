@@ -49,17 +49,21 @@ public class NotaDaoImpl extends AbstractDao<Integer, Nota> implements NotaDao {
 	@Override
 	public void eliminar(int id) {
 		try {
-			Query query1 = getSession().createSQLQuery("delete from TIPOXNOTA where id_nota = :id");
+			Query query1 = getSession().createSQLQuery("delete from AUDIO where id_nota = :id");
 			query1.setInteger("id", id);
 			query1.executeUpdate();
 			
-			Query query2 = getSession().createSQLQuery("delete from CATEGORIAXNOTA where id_nota = :id");
+			Query query2 = getSession().createSQLQuery("delete from TIPOXNOTA where id_nota = :id");
 			query2.setInteger("id", id);
 			query2.executeUpdate();
 			
-			Query query3 = getSession().createSQLQuery("delete from NOTA where id = :id");
+			Query query3 = getSession().createSQLQuery("delete from CATEGORIAXNOTA where id_nota = :id");
 			query3.setInteger("id", id);
 			query3.executeUpdate();
+			
+			Query query4 = getSession().createSQLQuery("delete from NOTA where id = :id");
+			query4.setInteger("id", id);
+			query4.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
