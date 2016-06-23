@@ -49,13 +49,13 @@ public class UsuarioRestController {
 
 	@RequestMapping(value = "/agregar", params = { "nombre", "empresa", "fechaNacimiento", "sexo", "contrasena",
 			"correo", "cargo" }, method = RequestMethod.POST)
-	public ResponseEntity<Integer> agregar(@RequestParam("nombre") String nombre,
+	public ResponseEntity<Usuario> agregar(@RequestParam("nombre") String nombre,
 			@RequestParam("empresa") String empresa, @RequestParam("fechaNacimiento") String fechaNacimiento,
 			@RequestParam("sexo") String sexo, @RequestParam("contrasena") String contrasena,
 			@RequestParam("correo") String correo, @RequestParam("cargo") String cargo) {
 
 		if (service.obtenerPorCorreo(correo) != null) {
-			return new ResponseEntity<Integer>(HttpStatus.CONFLICT);
+			return new ResponseEntity<Usuario>(HttpStatus.CONFLICT);
 		}
 
 		Usuario usuario = new Usuario();
@@ -69,7 +69,8 @@ public class UsuarioRestController {
 		usuario.setCargo(cargo);
 
 		int userId = service.agregar(usuario);
-		return new ResponseEntity<Integer>(userId, HttpStatus.OK);
+		usuario.setId(userId);
+		return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/eliminar/{id}", method = RequestMethod.DELETE)

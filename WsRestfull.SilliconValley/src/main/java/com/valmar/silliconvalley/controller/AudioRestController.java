@@ -70,7 +70,7 @@ public class AudioRestController {
     	audioBean.setAudio(audio);
     	Nota nota = notaService.obtenerPorId(notaId);
     	if(nota==null){
-    		return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+    		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
     	}
     	audioBean.setNota(nota);
         service.agregar(audioBean); 

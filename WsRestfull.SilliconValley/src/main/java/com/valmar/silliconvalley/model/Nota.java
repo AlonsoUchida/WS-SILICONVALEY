@@ -44,7 +44,7 @@ public class Nota {
 	private String comentario;
 	
 	@Column(name = "FECHA_REGISTRO")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaRegistro;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "nota", cascade = CascadeType.ALL)
